@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">French Conversations: choose your weekend</title>
+  <desc id="description">The opening screen sets the scene at work on a Monday morning, shows Alex asking about the weekend, and offers three versions of the conversation.</desc>
+  <rect width="1200" height="760" fill="#0b0f14"/>
+  <rect x="300" y="0" width="600" height="760" fill="#10161d"/>
+  <circle cx="334" cy="38" r="4" fill="#4fd1c5"/>
+  <text x="346" y="43" fill="#eef3f7" font-family="Consolas, monospace" font-size="13" font-weight="700" letter-spacing="2">FRENCH CONVERSATIONS</text>
+  <line x1="320" y1="64" x2="880" y2="64" stroke="#212a33"/>
+  <g font-family="Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1" text-anchor="middle">
+    <circle cx="376" cy="88" r="3.5" fill="#4fd1c5"/><text x="376" y="108" fill="#b4c2cc">SET UP</text>
+    <circle cx="488" cy="88" r="3.5" fill="#4fd1c5"/><text x="488" y="108" fill="#4fd1c5">CHOOSE</text>
+    <line x1="448" y1="118" x2="528" y2="118" stroke="#4fd1c5"/>
+    <circle cx="600" cy="88" r="3.5" fill="none" stroke="#7e909e"/><text x="600" y="108" fill="#7e909e">READ</text>
+    <circle cx="712" cy="88" r="3.5" fill="none" stroke="#7e909e"/><text x="712" y="108" fill="#7e909e">BUILD</text>
+    <circle cx="824" cy="88" r="3.5" fill="none" stroke="#7e909e"/><text x="824" y="108" fill="#7e909e">SAY</text>
+  </g>
+  <text x="320" y="164" fill="#eef3f7" font-family="Arial, sans-serif" font-size="30" font-weight="700">Talking about your weekend</text>
+  <text x="320" y="194" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="16">Alex asks first. Pick the weekend you actually had.</text>
+  <rect x="320" y="216" width="560" height="146" rx="13" fill="#171f28" stroke="#2a3540"/>
+  <text x="340" y="244" fill="#eef3f7" font-family="Arial, sans-serif" font-size="15" font-weight="700">Monday morning, by the kettle at work.</text>
+  <text x="340" y="270" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">You: a colleague you like, but don’t know well, asks about your weekend.</text>
+  <text x="340" y="292" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">Alex: friendly, chatty, uses casual spoken French.</text>
+  <line x1="340" y1="310" x2="860" y2="310" stroke="#2a3540"/>
+  <text x="340" y="338" fill="#4fd1c5" font-family="Arial, sans-serif" font-size="14">Done when Alex keeps asking, and you keep having something to say.</text>
+  <text x="320" y="396" fill="#7e909e" font-family="Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1">ALEX</text>
+  <rect x="320" y="406" width="420" height="72" rx="16" fill="#171f28" stroke="#2a3540"/>
+  <text x="338" y="434" fill="#eef3f7" font-family="Arial, sans-serif" font-size="17">Salut ! T’as passé un bon week-end ?</text>
+  <text x="338" y="460" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">Hey! Did you have a good weekend?</text>
+  <text x="320" y="518" fill="#b4c2cc" font-family="Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">SO — HOW WAS IT?</text>
+  <rect x="320" y="532" width="560" height="60" rx="14" fill="#171f28" stroke="#4fd1c5"/>
+  <text x="340" y="558" fill="#eef3f7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Un week-end sympa</text>
+  <text x="340" y="579" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">A good weekend</text>
+  <rect x="320" y="602" width="560" height="60" rx="14" fill="#171f28" stroke="#2a3540"/>
+  <text x="340" y="628" fill="#eef3f7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Un week-end tranquille</text>
+  <text x="340" y="649" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">A quiet weekend</text>
+  <rect x="320" y="672" width="560" height="60" rx="14" fill="#171f28" stroke="#2a3540"/>
+  <text x="340" y="698" fill="#eef3f7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Un week-end pas terrible</text>
+  <text x="340" y="719" fill="#b4c2cc" font-family="Arial, sans-serif" font-size="14">Not a great weekend</text>
+</svg>

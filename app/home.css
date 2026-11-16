@@ -1,0 +1,692 @@
+/* Home page. Colours and type come from the tokens in globals.css. */
+
+/* Full-bleed bands inside the padded <main>. */
+.hp-band {
+  margin-inline: calc(var(--page-gutter) * -1);
+  padding-inline: var(--page-gutter);
+}
+
+.hp-inner {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+}
+
+/* Shared pieces ---------------------------------------------------------- */
+
+.hp-sticker {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  padding: 0.45rem 0.85rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.4rem;
+  background: var(--color-paper);
+  box-shadow: 0.2rem 0.2rem 0 var(--color-ink);
+  color: var(--color-ink);
+  font-family: var(--font-mono-stack);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hp-sticker-tilt {
+  transform: rotate(-2.5deg);
+}
+
+.hp-kicker {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hp-heading {
+  max-width: 46rem;
+}
+
+.hp-heading h2 {
+  margin: 0;
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  line-height: 0.95;
+}
+
+.hp-heading > p:not(.hp-kicker) {
+  max-width: 34rem;
+  margin: 1.4rem 0 0;
+  color: var(--color-muted);
+  font-size: 1.08rem;
+}
+
+.hp-button {
+  display: inline-flex;
+  min-height: 3.4rem;
+  padding-inline: 1.6rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-ink);
+  box-shadow: 0.25rem 0.25rem 0 var(--color-tomato);
+  color: var(--color-paper);
+  font-family: var(--font-mono-stack);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.hp-button:hover {
+  box-shadow: 0.4rem 0.4rem 0 var(--color-tomato);
+  color: var(--color-paper);
+  transform: translate(-0.15rem, -0.15rem);
+}
+
+.hp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-ink);
+  font-family: var(--font-mono-stack);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-transform: uppercase;
+}
+
+.hp-link span {
+  transition: transform 160ms ease;
+}
+
+.hp-link:hover span {
+  transform: translateX(0.25rem);
+}
+
+/* Hero ------------------------------------------------------------------- */
+
+.hp-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 7vw, 6.5rem);
+  border-bottom: 2px solid var(--color-ink);
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--color-ink) 12%, transparent) 1px, transparent 1.5px) 0 0 / 1.4rem 1.4rem,
+    var(--color-mustard);
+}
+
+.hp-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.hp-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hp-hero h1 {
+  max-width: 11ch;
+  margin: 1.6rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(3.6rem, 8.4vw, 8.4rem);
+  line-height: 0.9;
+}
+
+/* "Clearer" sits on its own red label, slightly askew. */
+.hp-hero h1 mark {
+  display: inline-block;
+  margin-block: 0.06em;
+  padding: 0.02em 0.1em 0;
+  border-radius: 0.06em;
+  background: var(--color-tomato);
+  color: var(--color-paper);
+  line-height: 0.92;
+  transform: rotate(-2deg);
+}
+
+.hp-hero-lede {
+  max-width: 34rem;
+  margin: 1.8rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+}
+
+.hp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 2rem;
+  margin-top: 2.25rem;
+}
+
+/* Field note (the question sharpener) ------------------------------------ */
+
+.field-note {
+  position: relative;
+  margin: 0;
+  padding: 2.4rem clamp(1.25rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2.2rem);
+  border: 3px solid var(--color-ink);
+  border-radius: 0.6rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 1.9rem,
+      color-mix(in srgb, var(--color-cobalt) 14%, transparent) 1.9rem calc(1.9rem + 1px)
+    ),
+    var(--color-paper);
+  box-shadow: 0.6rem 0.6rem 0 var(--color-ink);
+  transform: rotate(1.2deg);
+}
+
+/* Spiral binding along the top edge. */
+.field-note-binding {
+  position: absolute;
+  top: -0.85rem;
+  right: 1.5rem;
+  left: 1.5rem;
+  height: 1.6rem;
+  background: radial-gradient(circle at 50% 50%, var(--color-ink) 0 0.32rem, transparent 0.34rem) 0 0 / 1.5rem 100% repeat-x;
+}
+
+.field-note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field-note-header p {
+  margin: 0;
+}
+
+.field-note-stamp {
+  padding: 0.25rem 0.55rem;
+  border: 2px solid var(--color-tomato);
+  border-radius: 0.3rem;
+  color: var(--color-accent);
+  transform: rotate(-4deg);
+}
+
+.field-note-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.field-note-tab {
+  padding: 0.45rem 0.85rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  font: 700 0.75rem/1 var(--font-mono-stack);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.field-note-tab span {
+  opacity: 0.6;
+}
+
+.field-note-tab:hover {
+  background: color-mix(in srgb, var(--color-mustard) 45%, transparent);
+}
+
+.field-note-tab[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.field-note-body {
+  margin-top: 1.6rem;
+}
+
+.field-note-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono-stack);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field-note-messy {
+  margin: 0;
+  font-family: var(--font-display-stack);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  animation: note-in 320ms ease both;
+}
+
+/* A hand-drawn strike that draws across when the question is sharpened. */
+.field-note-messy span {
+  background: linear-gradient(var(--color-tomato), var(--color-tomato)) no-repeat 0 58% / 0% 0.18em;
+  transition: background-size 420ms ease, color 420ms ease;
+}
+
+.field-note-body[data-sharpened="true"] .field-note-messy span {
+  background-size: 100% 0.18em;
+  color: var(--color-muted);
+}
+
+.field-note-sharpen {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+  padding: 0.7rem 1.1rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.5rem;
+  background: var(--color-mustard);
+  box-shadow: 0.2rem 0.2rem 0 var(--color-ink);
+  color: var(--color-ink);
+  cursor: pointer;
+  font: 700 0.78rem/1 var(--font-mono-stack);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.field-note-sharpen:hover {
+  box-shadow: 0.3rem 0.3rem 0 var(--color-ink);
+  transform: translate(-0.1rem, -0.1rem);
+}
+
+.field-note-sharpen:active {
+  box-shadow: 0 0 0 var(--color-ink);
+  transform: translate(0.2rem, 0.2rem);
+}
+
+.field-note-result {
+  min-height: 9.5rem;
+  margin-top: 1.4rem;
+}
+
+.field-note-focused {
+  margin: 0;
+  color: var(--color-teal-deep);
+  font-family: var(--font-display-stack);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  animation: note-in 420ms 120ms ease both;
+}
+
+.field-note-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  gap: 0.4rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  animation: note-in 420ms 240ms ease both;
+}
+
+.field-note-tab:focus-visible,
+.field-note-sharpen:focus-visible,
+.hp-button:focus-visible {
+  outline: 3px solid var(--color-cobalt);
+  outline-offset: 3px;
+}
+
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+/* Ticker ----------------------------------------------------------------- */
+
+.hp-ticker {
+  overflow: hidden;
+  padding-block: 0.9rem;
+  border-bottom: 2px solid var(--color-ink);
+  background: var(--color-tomato);
+  color: var(--color-paper);
+}
+
+.hp-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 36s linear infinite;
+}
+
+.hp-ticker p {
+  display: flex;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.hp-ticker span {
+  padding-right: 1.5rem;
+  font-family: var(--font-display-stack);
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hp-ticker b {
+  padding-left: 1.5rem;
+  color: var(--color-mustard);
+  font-weight: 400;
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Selected work ---------------------------------------------------------- */
+
+.hp-work {
+  padding-block: var(--section-space);
+}
+
+.hp-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hp-card {
+  --tone: var(--color-teal);
+  --tone-ink: var(--color-ink);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.7rem;
+  background: var(--color-surface);
+  box-shadow: 0 0 0 var(--color-ink);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* The deeper red keeps the small cream label text readable. */
+.hp-card[data-tone="tomato"] {
+  --tone: var(--color-accent);
+  --tone-ink: var(--color-paper);
+}
+
+.hp-card[data-tone="cobalt"] {
+  --tone: var(--color-cobalt);
+  --tone-ink: var(--color-paper);
+}
+
+.hp-card:hover,
+.hp-card:focus-within {
+  box-shadow: var(--shadow-hard);
+  transform: translate(-0.2rem, -0.2rem) rotate(-0.6deg);
+}
+
+.hp-card-top {
+  display: flex;
+  min-height: 9.5rem;
+  padding: 1.1rem 1.25rem;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--color-ink);
+  background: var(--tone);
+  color: var(--tone-ink);
+}
+
+.hp-card-number {
+  font-family: var(--font-display-stack);
+  font-size: 3.4rem;
+  line-height: 0.9;
+}
+
+.hp-card-label {
+  width: fit-content;
+  margin: 0;
+  padding: 0.3rem 0.55rem;
+  border: 1.5px solid currentColor;
+  border-radius: 0.3rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.hp-card-body {
+  display: flex;
+  padding: 1.4rem 1.25rem 1.3rem;
+  flex: 1;
+  flex-direction: column;
+}
+
+.hp-card h3 {
+  margin: 0;
+  font-family: var(--font-display-stack);
+  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hp-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The title link covers the whole card. */
+.hp-card h3 a::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.hp-card h3 a:focus-visible {
+  outline: none;
+}
+
+.hp-card:has(h3 a:focus-visible) {
+  outline: 3px solid var(--color-cobalt);
+  outline-offset: 4px;
+}
+
+.hp-card-body > p {
+  margin: 0.9rem 0 0;
+  color: var(--color-muted);
+}
+
+.hp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hp-chips li {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-ink) 7%, transparent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.hp-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.4rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hp-card-cta span {
+  display: inline-grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.hp-card:hover .hp-card-cta span {
+  background: var(--color-mustard);
+  transform: rotate(45deg);
+}
+
+/* How I work ------------------------------------------------------------- */
+
+.hp-method {
+  padding-block: var(--section-space);
+  border-block: 2px solid var(--color-ink);
+  background: var(--color-teal);
+}
+
+.hp-method .hp-kicker {
+  color: var(--color-ink);
+}
+
+.hp-method .hp-heading > p:not(.hp-kicker) {
+  color: var(--color-ink);
+}
+
+.hp-method-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.hp-aside {
+  font-style: italic;
+}
+
+.hp-steps {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hp-steps li {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.85rem 1.2rem 0.85rem 0.85rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.6rem;
+  background: var(--color-paper);
+  box-shadow: 0.25rem 0.25rem 0 var(--color-ink);
+}
+
+/* A staggered, slightly hand-placed list. */
+.hp-steps li:nth-child(1) { transform: rotate(-1deg); }
+.hp-steps li:nth-child(2) { margin-left: clamp(0rem, 4vw, 3rem); transform: rotate(0.8deg); }
+.hp-steps li:nth-child(3) { margin-left: clamp(0rem, 2vw, 1.5rem); transform: rotate(-0.6deg); }
+.hp-steps li:nth-child(4) { margin-left: clamp(0rem, 6vw, 4.5rem); transform: rotate(1deg); }
+
+.hp-step-number {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-tomato);
+  color: var(--color-paper);
+  font-family: var(--font-mono-stack);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hp-step-tag {
+  font-family: var(--font-display-stack);
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hp-steps p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (max-width: 58rem) {
+  .hp-hero-grid,
+  .hp-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-note {
+    max-width: 36rem;
+    transform: rotate(0.6deg);
+  }
+
+  .hp-cards {
+    grid-template-columns: 1fr;
+    max-width: 36rem;
+  }
+}
+
+@media (max-width: 42rem) {
+  .hp-hero h1 {
+    font-size: clamp(3.1rem, 15vw, 4.6rem);
+  }
+
+  .field-note-header {
+    flex-wrap: wrap;
+  }
+
+  .hp-steps li {
+    grid-template-columns: auto minmax(0, 1fr);
+    margin-left: 0 !important;
+  }
+
+  .hp-steps li p {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-ticker-track {
+    animation: none;
+  }
+}
