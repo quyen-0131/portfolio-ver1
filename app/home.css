@@ -359,49 +359,6 @@
   }
 }
 
-/* Ticker ----------------------------------------------------------------- */
-
-.hp-ticker {
-  overflow: hidden;
-  padding-block: 0.9rem;
-  border-bottom: 2px solid var(--color-ink);
-  background: var(--color-tomato);
-  color: var(--color-paper);
-}
-
-.hp-ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 36s linear infinite;
-}
-
-.hp-ticker p {
-  display: flex;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.hp-ticker span {
-  padding-right: 1.5rem;
-  font-family: var(--font-display-stack);
-  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.hp-ticker b {
-  padding-left: 1.5rem;
-  color: var(--color-mustard);
-  font-weight: 400;
-}
-
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Selected work ---------------------------------------------------------- */
 
 .hp-work {
@@ -686,11 +643,5 @@
 
   .hp-steps li p {
     grid-column: 1 / -1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hp-ticker-track {
-    animation: none;
   }
 }

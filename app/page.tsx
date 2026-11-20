@@ -9,8 +9,6 @@ const principles = [
   { tag: "Iterate", text: "Learn through small experiments and iteration." },
 ];
 
-const tickerWords = ["Human insight", "Strategy", "Product", "Small experiments", "Clearer choices"];
-
 export default function HomePage() {
   return (
     <>
@@ -48,20 +46,6 @@ export default function HomePage() {
           />
         </div>
       </section>
-
-      <div className="hp-band hp-ticker" aria-hidden="true">
-        <div className="hp-ticker-track">
-          {[0, 1].map((copy) => (
-            <p key={copy}>
-              {tickerWords.map((word) => (
-                <span key={word}>
-                  {word} <b>✦</b>
-                </span>
-              ))}
-            </p>
-          ))}
-        </div>
-      </div>
 
       <section className="hp-band hp-work" aria-labelledby="selected-work-title">
         <div className="hp-inner">
