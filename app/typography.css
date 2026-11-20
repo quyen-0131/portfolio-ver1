@@ -1,0 +1,123 @@
+/* Readable headings across the existing light and ink themes. */
+:root {
+  --font-display-stack: var(--font-body-stack);
+}
+
+.site-shell main.page-container :is(h1, h2, h3, h4) {
+  font-family: var(--font-body-stack);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  overflow-wrap: break-word;
+}
+
+.site-shell main.page-container h1 {
+  max-width: 24ch;
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+}
+
+.site-shell main.page-container h2 {
+  max-width: 28ch;
+  font-size: clamp(1.75rem, 3.1vw, 2.75rem);
+}
+
+.site-shell main.page-container h3 {
+  max-width: none;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.site-shell .wordmark,
+.site-shell .footer-title {
+  font-family: var(--font-body-stack);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.site-shell .footer-title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.field-note-messy,
+.field-note-focused,
+.hp-card h3 {
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.collection-intro {
+  max-width: 60rem;
+  padding-block: 2.5rem 2rem;
+}
+
+.collection-intro h1 {
+  margin: 0;
+}
+
+.collection-intro > p:not(.eyebrow) {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.collection-note {
+  margin-block: 1.25rem 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.collection-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+}
+
+.class-work {
+  padding-block: 0 3rem;
+}
+
+.class-work-grid {
+  margin-top: 0.5rem;
+}
+
+.case-back {
+  margin-bottom: 2.5rem;
+}
+
+.navigation nav {
+  min-width: 0;
+}
+
+.navigation-list {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+
+.navigation-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 42rem) {
+  .navigation nav {
+    width: 100%;
+  }
+
+  .navigation-list {
+    justify-content: flex-start;
+    gap: 0.25rem 1rem;
+  }
+
+  .collection-intro {
+    padding-top: 2rem;
+  }
+}

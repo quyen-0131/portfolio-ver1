@@ -180,7 +180,10 @@ export default function AboutPage() {
             Email me <span aria-hidden="true">→</span>
           </a>
           <a className="text-link" href="/Nguyen-Phuong-Thao-Quyen-Resume.pdf" target="_blank" rel="noreferrer">
-            Read my resume <span aria-hidden="true">→</span>
+            Resume (1 page)
+          </a>
+          <a className="text-link" href="/Quyen-Nguyen-CV-2pages.pdf" target="_blank" rel="noreferrer">
+            Detailed CV (2 pages)
           </a>
         </div>
       </section>

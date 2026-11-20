@@ -1,5 +1,11 @@
 node_modules/
 .next/
+.next-local/
+.vercel/
+tmp/
+output/
+planning/
+content/resumes/
 out/
 .env*
 !.env.example

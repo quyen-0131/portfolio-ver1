@@ -27,8 +27,8 @@ export default function HomePage() {
               and take an informed next step.
             </p>
             <div className="hp-hero-actions">
-              <Link className="hp-button" href="/work">
-                Explore case studies <span aria-hidden="true">→</span>
+              <Link className="hp-button" href="/personal-projects">
+                Explore personal projects
               </Link>
               <Link className="hp-link" href="/about">
                 About my path <span aria-hidden="true">→</span>
@@ -66,8 +66,8 @@ export default function HomePage() {
       <section className="hp-band hp-work" aria-labelledby="selected-work-title">
         <div className="hp-inner">
           <div className="hp-heading">
-            <p className="hp-kicker">Selected work</p>
-            <h2 id="selected-work-title">Three case studies, grounded in real decisions.</h2>
+            <p className="hp-kicker">Work &amp; personal projects</p>
+            <h2 id="selected-work-title">Four case studies, grounded in real decisions.</h2>
             <p>They show how I frame a problem, listen to people, and use evidence to decide what to test next.</p>
           </div>
 
@@ -98,9 +98,11 @@ export default function HomePage() {
             ))}
           </ol>
 
-          <Link className="hp-link" href="/work">
-            Explore all the work <span aria-hidden="true">→</span>
-          </Link>
+          <div className="collection-links" aria-label="Explore the portfolio">
+            <Link className="hp-link" href="/work">Professional work</Link>
+            <Link className="hp-link" href="/personal-projects">Personal projects</Link>
+            <Link className="hp-link" href="/class-work">Class work</Link>
+          </div>
         </div>
       </section>
 

@@ -13,7 +13,11 @@ export function Footer() {
           </a>
           <a href="mailto:ptq.nguyen.2026@mitb.smu.edu.sg">Email me</a>
           <a href="/Nguyen-Phuong-Thao-Quyen-Resume.pdf" target="_blank" rel="noreferrer">
-            Resume <span aria-hidden="true">↗</span>
+            Resume (1 page)
+            <span className="visually-hidden"> (opens in a new tab)</span>
+          </a>
+          <a href="/Quyen-Nguyen-CV-2pages.pdf" target="_blank" rel="noreferrer">
+            Detailed CV (2 pages)
             <span className="visually-hidden"> (opens in a new tab)</span>
           </a>
         </div>

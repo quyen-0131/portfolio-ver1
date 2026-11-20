@@ -69,7 +69,7 @@ export default function DecisionLabPage() {
       <section className="case-hero decision-lab-hero" aria-labelledby="decision-lab-title">
         <div className="decision-lab-hero-copy">
           <Link className="case-back" href="/work">
-            <span aria-hidden="true">←</span> Selected work
+            Work
           </Link>
           <p className="eyebrow">Behavioural research and strategy · Confidential</p>
           <h1 id="decision-lab-title">Research that helps people make a better next decision.</h1>

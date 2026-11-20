@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Denim jacket specimen plate">
+  <rect width="400" height="500" fill="#E4E7EC"/>
+  <rect x="16" y="16" width="368" height="468" fill="none" stroke="#241F1A" stroke-opacity="0.18"/>
+  <g fill="#3B5775" fill-opacity="0.14" stroke="#3B5775" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- collar -->
+    <path d="M168 128 l32 14 32 -14 -6 22 -26 10 -26 -10 z"/>
+    <!-- body -->
+    <path d="M158 150 l42 18 42 -18 20 20 -14 18 10 160 q-58 14 -116 0 l10 -160 -14 -18 z"/>
+    <!-- sleeves -->
+    <path d="M158 150 l-26 24 14 150 32 -8 z"/>
+    <path d="M242 150 l26 24 -14 150 -32 -8 z"/>
+    <!-- centre placket + pockets -->
+    <path d="M200 168 l0 200" stroke-opacity="0.55"/>
+    <path d="M176 196 l20 0 0 24 -20 0 z"/>
+    <path d="M204 196 l20 0 0 24 -20 0 z"/>
+  </g>
+  <text x="200" y="452" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#241F1A">denim jacket</text>
+  <text x="200" y="472" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="3" fill="#6B6155">SPECIMEN · WORKWEAR</text>
+</svg>

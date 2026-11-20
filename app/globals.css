@@ -234,7 +234,7 @@ h1 {
   font-weight: 700;
 }
 
-.work-entry-featured .work-entry-link {
+.work-entry-ink .work-entry-link {
   color: white;
 }
 
@@ -267,7 +267,7 @@ h1 {
   border-bottom: 1px solid var(--color-border);
 }
 
-.work-entry-featured {
+.work-entry-ink {
   background: linear-gradient(135deg, #181816 0%, #292823 100%);
   color: var(--color-surface);
   box-shadow: 0 0 0 100vmax #181816;
@@ -282,7 +282,7 @@ h1 {
   letter-spacing: 0.12em;
 }
 
-.work-entry-featured .work-entry-index {
+.work-entry-ink .work-entry-index {
   color: #b9cbff;
 }
 
@@ -296,7 +296,7 @@ h1 {
   line-height: 0.96;
 }
 
-.work-entry:not(.work-entry-featured) h2 {
+.work-entry:not(.work-entry-ink) h2 {
   font-size: clamp(2.1rem, 4.5vw, 3.8rem);
 }
 
@@ -307,8 +307,8 @@ h1 {
   line-height: 1.55;
 }
 
-.work-entry-featured .work-entry-summary,
-.work-entry-featured .work-evidence dd {
+.work-entry-ink .work-entry-summary,
+.work-entry-ink .work-evidence dd {
   color: #dbdad5;
 }
 
@@ -325,7 +325,7 @@ h1 {
   border-top: 1px solid var(--color-border);
 }
 
-.work-entry-featured .work-evidence div {
+.work-entry-ink .work-evidence div {
   border-color: #68675e;
 }
 
@@ -337,7 +337,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.work-entry-featured .work-evidence dt {
+.work-entry-ink .work-evidence dt {
   color: #b9cbff;
 }
 
@@ -366,7 +366,7 @@ h1 {
   font-weight: 700;
 }
 
-.work-entry-featured .theme-list li {
+.work-entry-ink .theme-list li {
   border-color: #68675e;
   color: #dbdad5;
 }
@@ -1518,13 +1518,13 @@ h1,
   transition: background-color 220ms ease;
 }
 
-.work-entry:not(.work-entry-featured):hover {
+.work-entry:not(.work-entry-ink):hover {
   background: color-mix(in srgb, var(--color-ink) 3.5%, transparent);
   box-shadow: 0 0 0 100vmax color-mix(in srgb, var(--color-ink) 3.5%, transparent);
   clip-path: inset(0 -100vmax);
 }
 
-.work-entry-featured {
+.work-entry-ink {
   background: var(--color-ink);
   box-shadow: 0 0 0 100vmax var(--color-ink);
 }
@@ -1535,12 +1535,12 @@ h1,
   line-height: 0.85;
 }
 
-.work-entry:not(.work-entry-featured) h2 {
+.work-entry:not(.work-entry-ink) h2 {
   font-size: clamp(3rem, 6vw, 5.8rem);
 }
 
-.work-entry-featured .work-entry-summary,
-.work-entry-featured .work-evidence dd {
+.work-entry-ink .work-entry-summary,
+.work-entry-ink .work-evidence dd {
   color: #c5c7bd;
 }
 
@@ -1549,8 +1549,8 @@ h1,
   border-color: var(--color-border);
 }
 
-.work-entry-featured .work-evidence div,
-.work-entry-featured .theme-list li {
+.work-entry-ink .work-evidence div,
+.work-entry-ink .theme-list li {
   border-color: #52574d;
 }
 
@@ -2324,7 +2324,7 @@ h1,
 }
 
 /* Ink panels: the few dark blocks keep light text by redefining the role tokens locally. */
-.work-entry-featured,
+.work-entry-ink,
 .case-role-patterns,
 .case-next,
 .side-quest-more,

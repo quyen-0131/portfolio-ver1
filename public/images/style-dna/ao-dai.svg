@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Silk ao dai specimen plate">
+  <rect width="400" height="500" fill="#EFE7D6"/>
+  <rect x="16" y="16" width="368" height="468" fill="none" stroke="#241F1A" stroke-opacity="0.18"/>
+  <g fill="none" stroke="#C06A4B" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- collar -->
+    <path d="M186 92 q14 -14 28 0 l0 16 q-14 10 -28 0 z" fill="#C06A4B" fill-opacity="0.12"/>
+    <!-- shoulders / bodice -->
+    <path d="M172 104 q28 -8 56 0 l20 20 -18 18 0 60 q-30 10 -60 0 l0 -60 -18 -18 z" fill="#C06A4B" fill-opacity="0.08"/>
+    <!-- long flowing panels -->
+    <path d="M178 198 q22 10 44 0 l6 206 q-28 10 -56 0 z" fill="#C06A4B" fill-opacity="0.10"/>
+    <!-- side slit hint -->
+    <path d="M200 206 l0 198" stroke-opacity="0.5"/>
+  </g>
+  <text x="200" y="452" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#241F1A">áo dài</text>
+  <text x="200" y="472" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="3" fill="#6B6155">SPECIMEN · VIETNAM</text>
+</svg>

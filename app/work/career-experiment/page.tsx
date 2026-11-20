@@ -43,10 +43,10 @@ const prototypeScreens = [
 
 export default function CareerExperimentPage() {
   return (
-    <>
+    <div className="project-theme-ink">
       <section className="case-hero" aria-labelledby="case-title">
-        <Link className="case-back" href="/work">
-          <span aria-hidden="true">←</span> Selected work
+        <Link className="case-back" href="/personal-projects">
+          Personal projects
         </Link>
         <p className="eyebrow">Independent product prototype · In iteration</p>
         <h1 id="case-title">Career choices need more than information.</h1>
@@ -273,6 +273,6 @@ export default function CareerExperimentPage() {
           someone understand what they might enjoy or want less of, then give them a brief environment in which to test it.
         </p>
       </section>
-    </>
+    </div>
   );
 }

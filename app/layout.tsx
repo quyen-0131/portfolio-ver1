@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Anton, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navigation } from "@/components/layout/Navigation";
 import "./globals.css";
 import "./home.css";
-
-const display = Anton({
-  subsets: ["latin", "vietnamese"],
-  weight: "400",
-  variable: "--font-display",
-});
+import "./projects.css";
+import "./typography.css";
 
 const body = DM_Sans({
   subsets: ["latin"],
@@ -22,7 +18,13 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Quyen Nguyen | Portfolio",
     template: "%s | Quyen Nguyen",
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${body.variable} ${mono.variable}`}>
       <body>
         <div className="site-shell">
           <Navigation />

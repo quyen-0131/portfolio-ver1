@@ -1,0 +1,12 @@
+.git/
+.next/
+.next-local/
+node_modules/
+tmp/
+output/
+.agents/
+.claude/
+.codex/
+planning/
+scripts/
+content/resumes/

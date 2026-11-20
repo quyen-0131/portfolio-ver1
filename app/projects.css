@@ -1,0 +1,158 @@
+/* Project colour is independent of which case study is featured. */
+.work-entry-ink {
+  background: #1d1a16;
+  box-shadow: 0 0 0 100vmax #1d1a16;
+}
+
+.work-entry-ink .work-entry-link:hover {
+  color: var(--color-mustard);
+}
+
+.project-theme-ink {
+  --color-foreground: #f6efe1;
+  --color-muted: #cfc5b3;
+  --color-border: #4a443b;
+  --color-accent: #f3b53a;
+  --color-surface: #2a2621;
+  margin-inline: calc(var(--page-gutter) * -1);
+  padding-inline: var(--page-gutter);
+  padding-bottom: 3rem;
+  background: #1d1a16;
+  color: var(--color-foreground);
+}
+
+.project-theme-ink .button-prototype {
+  color: #1d1a16;
+  border-color: var(--color-accent);
+}
+
+.project-theme-ink .button-prototype:hover {
+  background: #9cc9c1;
+  border-color: #9cc9c1;
+}
+
+.project-theme-ink a:focus-visible,
+.work-entry-ink a:focus-visible {
+  outline-color: #f3b53a;
+}
+
+.project-theme-ink .prototype-screen-browser {
+  background: #2a2621;
+}
+
+.class-work {
+  padding-block: var(--section-space);
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: 7rem;
+}
+
+.class-work .section-heading h2 {
+  max-width: 14ch;
+  margin-block: 0.75rem 1.5rem;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+}
+
+.class-work-intro {
+  max-width: 42rem;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+.class-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.class-work-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+}
+
+.class-work-poster {
+  position: relative;
+  display: block;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  border-bottom: 2px solid var(--color-ink);
+  background: #e2e8e7;
+}
+
+.class-work-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0.5rem 1.5rem #1d1a1620;
+}
+
+.class-work-poster span {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.class-work-poster:hover span {
+  background: var(--color-mustard);
+}
+
+.class-work-copy {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.class-work-copy h3 {
+  margin-block: 1rem;
+  font-family: var(--font-display-stack);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.class-work-copy > p:not(.eyebrow) {
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.class-work-takeaway {
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--color-border);
+}
+
+.class-work-takeaway strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-teal-deep);
+}
+
+.class-work-credit,
+.class-work-download {
+  font-size: 0.9375rem;
+}
+
+.class-work-download {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+.hp-classwork-link {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 58rem) {
+  .class-work-grid {
+    grid-template-columns: 1fr;
+  }
+}

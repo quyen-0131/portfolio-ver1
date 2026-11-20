@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Bias-cut silk skirt specimen plate">
+  <rect width="400" height="500" fill="#EAE0CC"/>
+  <rect x="16" y="16" width="368" height="468" fill="none" stroke="#241F1A" stroke-opacity="0.18"/>
+  <g fill="#B5651D" fill-opacity="0.10" stroke="#B5651D" stroke-width="2.4" stroke-linejoin="round">
+    <!-- waistband -->
+    <path d="M168 150 q32 -8 64 0 l0 16 q-32 8 -64 0 z"/>
+    <!-- bias A-line fall -->
+    <path d="M168 166 q32 8 64 0 l40 206 q-72 20 -144 0 z"/>
+  </g>
+  <g stroke="#241F1A" stroke-opacity="0.18" stroke-width="1">
+    <path d="M184 172 l-22 196"/>
+    <path d="M216 172 l22 196"/>
+    <path d="M200 170 l0 200"/>
+  </g>
+  <text x="200" y="452" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#241F1A">bias silk skirt</text>
+  <text x="200" y="472" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="3" fill="#6B6155">SPECIMEN · STAPLE</text>
+</svg>

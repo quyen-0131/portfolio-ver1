@@ -2,11 +2,12 @@
  * Single source of truth for the case studies shown on the home and work pages.
  * Edit a project here and both pages update.
  */
-export type CaseStudyTone = "teal" | "tomato" | "cobalt";
+export type CaseStudyTone = "teal" | "tomato" | "cobalt" | "mustard";
 
 export type CaseStudy = {
   slug: string;
   title: string;
+  category: "professional" | "personal";
   /** Status line, e.g. "Independent product prototype · In iteration". */
   label: string;
   /** One-sentence version for the home page cards. */
@@ -18,6 +19,7 @@ export type CaseStudy = {
   learning: string;
   themes: string[];
   featured?: boolean;
+  panel?: "ink" | "paper";
   href: string;
   /** Colour used for this project's card on the home page. */
   tone: CaseStudyTone;
@@ -32,6 +34,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "career-experiment",
+    category: "personal",
     title: "The Career Experiment",
     shortTitle: "Careers",
     label: "Independent product prototype · In iteration",
@@ -46,6 +49,7 @@ export const caseStudies: CaseStudy[] = [
       "The first version showed that reflection alone was not enough: users needed plain language, more specific prompts, and a concrete next experiment.",
     themes: ["Product discovery", "Prototyping", "User feedback", "Iteration"],
     featured: true,
+    panel: "ink",
     href: "/work/career-experiment",
     tone: "teal",
     messyQuestion: "What should I do with my life?",
@@ -53,6 +57,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "french-conversations",
+    category: "personal",
     title: "French Conversations",
     shortTitle: "French",
     label: "Independent product prototype · In iteration",
@@ -72,7 +77,30 @@ export const caseStudies: CaseStudy[] = [
     focusedQuestion: "Can I get through one real conversation this weekend, in my own words?",
   },
   {
+    slug: "style-dna",
+    category: "personal",
+    panel: "ink",
+    title: "Style DNA",
+    shortTitle: "Style",
+    label: "Independent product prototype · In iteration",
+    teaser:
+      "A wardrobe-reflection prototype that starts with clothes you already wear and explores what could keep a piece useful to you.",
+    summary:
+      "A fashion prototype connecting the clothes people reach for, the reasons other pieces go unworn, and the lasting functions behind garment design.",
+    people: "People who want to understand their style and make more considered wardrobe choices.",
+    contribution:
+      "I framed the problem, built the prototype independently after a Culture × Tech makeathon, and connected curated garment research to a personal wardrobe reflection.",
+    learning:
+      "The design shifted from judging a garment as timeless to asking what it does for the person wearing it. That is a product hypothesis; user validation is still ahead.",
+    themes: ["Product framing", "Prototyping", "Cultural context", "Scope decisions"],
+    href: "/work/style-dna",
+    tone: "mustard",
+    messyQuestion: "What should I buy next?",
+    focusedQuestion: "Will this piece keep earning a place in how I already dress?",
+  },
+  {
     slug: "decision-lab",
+    category: "professional",
     title: "Decision Lab",
     shortTitle: "Decisions",
     label: "Behavioural research and strategy · Confidential",

@@ -50,8 +50,8 @@ export default function FrenchConversationsPage() {
   return (
     <>
       <section className="case-hero" aria-labelledby="case-title">
-        <Link className="case-back" href="/work">
-          <span aria-hidden="true">←</span> Selected work
+        <Link className="case-back" href="/personal-projects">
+          Personal projects
         </Link>
         <p className="eyebrow">Independent product prototype · In iteration</p>
         <h1 id="case-title">Practise one conversation until you can make it your own.</h1>
