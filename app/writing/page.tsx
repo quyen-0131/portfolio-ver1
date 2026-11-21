@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Writing",
+  description:
+    "Essays by Quyen Nguyen on how people make decisions under uncertainty, pressure, or limited options.",
+};
+
 const articles = [
   {
     title:

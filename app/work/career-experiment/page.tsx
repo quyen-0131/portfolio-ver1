@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "The Career Experiment",
+  description:
+    "A product prototype that helps students explore the day-to-day work behind potential careers before committing to a path.",
+};
 
 const rolePatterns = [
   {

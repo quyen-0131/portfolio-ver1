@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "French Conversations",
+  description:
+    "A French practice prototype that helps busy adults rehearse one everyday conversation at a time and answer in their own words.",
+};
 
 const repoUrl = "https://github.com/quyen-0131/aws-vibe-coding";
 

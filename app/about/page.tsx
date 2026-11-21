@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "How Quyen Nguyen moved from research and strategy into product management, and the approach behind the work.",
+};
 
 const principles = [
   {

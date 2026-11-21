@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Decision Lab",
+  description:
+    "Anonymised behavioural research and strategy work for an education organisation, from a live decision to a practical recommendation.",
+};
 
 const projects = [
   {
