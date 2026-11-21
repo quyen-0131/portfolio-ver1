@@ -52,8 +52,8 @@ export const caseStudies: CaseStudy[] = [
     panel: "ink",
     href: "/work/career-experiment",
     tone: "teal",
-    messyQuestion: "What should I do with my life?",
-    focusedQuestion: "Which day-to-day work would I actually enjoy trying for a week?",
+    messyQuestion: "With so much career advice out there, how do I know what’s right for me?",
+    focusedQuestion: "Which kind of work could I try for a week to find out?",
   },
   {
     slug: "french-conversations",
@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     href: "/work/french-conversations",
     tone: "tomato",
     messyQuestion: "How do I finally become fluent in French?",
-    focusedQuestion: "Can I get through one real conversation this weekend, in my own words?",
+    focusedQuestion: "Can I feel comfortable in one real conversation, responding in my own words?",
   },
   {
     slug: "style-dna",
