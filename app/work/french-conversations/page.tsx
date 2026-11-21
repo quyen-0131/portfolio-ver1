@@ -5,10 +5,10 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "French Conversations",
   description:
-    "A French practice prototype that helps busy adults rehearse one everyday conversation at a time and answer in their own words.",
+    "A French practice prototype that teaches everything in context: busy adults rehearse one everyday conversation at a time and answer in their own words.",
 };
 
-const repoUrl = "https://github.com/quyen-0131/aws-vibe-coding";
+const prototypeUrl = "https://aws-vibe-coding.vercel.app/";
 
 /** Paste a 60–90 second walkthrough link (Loom, YouTube…) here and a "Watch" button appears in the hero. */
 const demoVideoUrl: string | null = null;
@@ -63,8 +63,9 @@ export default function FrenchConversationsPage() {
         <p className="eyebrow">Independent product prototype · In iteration</p>
         <h1 id="case-title">Practise one conversation until you can make it your own.</h1>
         <p>
-          I built French Conversations to help learners rehearse everyday situations in French, one conversation at a
-          time. The goal is to put the script away, answer in your own words, and handle a follow-up you haven’t seen.
+          I built French Conversations as an alternative to short daily lessons and streaks. Every word and sentence
+          is learned inside a real situation, one conversation at a time. The goal is to put the script away, answer
+          in your own words, and handle a follow-up you haven’t seen.
         </p>
         <p>
           It started as a first build at an AWS workshop. I kept going afterwards: testing it, cutting what didn’t
@@ -78,13 +79,13 @@ export default function FrenchConversationsPage() {
           ) : null}
           <a
             className={demoVideoUrl ? "text-link" : "button button-prototype"}
-            href={repoUrl}
+            href={prototypeUrl}
             rel="noreferrer"
             target="_blank"
           >
-            View the prototype on GitHub <span aria-hidden="true">↗</span>
+            Try the live prototype <span aria-hidden="true">↗</span>
           </a>
-          <p>Runs locally · no account · optional Gemini key for answer feedback</p>
+          <p>About ten minutes · no account needed</p>
         </div>
       </section>
 
@@ -106,16 +107,21 @@ export default function FrenchConversationsPage() {
       <section className="case-section case-problem" aria-labelledby="problem-title">
         <p className="eyebrow">The problem</p>
         <div className="case-problem-layout">
-          <h2 id="problem-title">What happens when a conversation goes off script?</h2>
+          <h2 id="problem-title">A long streak is not the same as being able to talk.</h2>
           <div>
             <p>
-              Learning French gave me words and sentence patterns I could recognise. In conversation, I wanted to be
-              able to use them when someone asked me a question I hadn’t prepared for.
+              Many language apps are built around short daily lessons and streaks. They reward showing up, but words
+              and sentences arrive one at a time, often with no situation around them. You can keep a streak going for
+              months and still freeze when someone asks you a real question.
             </p>
             <p>
-              Talking about the weekend gave me a specific place to start. A learner might know how to say they went
-              hiking. The next challenge is to answer who they went with or how it went, using details from their own
-              life.
+              What was missing for me was context: where I am, who I’m talking to, and why a phrase matters. Without
+              it, there is little to recall when it counts, and no chance to build an answer from your own words.
+            </p>
+            <p>
+              So French Conversations teaches everything inside one situation. Talking about the weekend gives a
+              specific place to start. A learner might know how to say they went hiking. The next challenge is to
+              answer who they went with or how it went, using details from their own life.
             </p>
           </div>
         </div>
@@ -193,11 +199,11 @@ export default function FrenchConversationsPage() {
         </p>
         <div className="prototype-showcase-action">
           <div>
-            <p>Explore the current build</p>
-            <span>The repository includes the app, the product requirements, and instructions for running it locally.</span>
+            <p>Try the current build</p>
+            <span>Pick your level, rehearse the weekend conversation, or paste French you’ve read and practise it the same way.</span>
           </div>
-          <a className="text-link" href={repoUrl} rel="noreferrer" target="_blank">
-            Open the repository <span aria-hidden="true">↗</span>
+          <a className="text-link" href={prototypeUrl} rel="noreferrer" target="_blank">
+            Open the prototype <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div className="prototype-gallery">
@@ -207,7 +213,7 @@ export default function FrenchConversationsPage() {
                 <span />
                 <span />
                 <span />
-                <p>localhost:8777</p>
+                <p>aws-vibe-coding.vercel.app</p>
               </div>
               <Image alt={screen.alt} height={760} src={screen.image} width={1200} />
               <figcaption>

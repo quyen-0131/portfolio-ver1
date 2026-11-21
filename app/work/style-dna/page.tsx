@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "An independent fashion prototype exploring how the clothes we already wear can guide more considered wardrobe choices.",
 };
 
+const prototypeUrl = "https://style-dna-wardrobe.vercel.app/";
+
 const walkthrough = [
   {
     image: "/images/style-dna/denim-jacket.svg",
@@ -48,7 +50,10 @@ export default function StyleDnaPage() {
           as an independent prototype.
         </p>
         <div className="case-hero-actions">
-          <a className="button button-prototype" href="#walkthrough">Explore the walkthrough</a>
+          <a className="button button-prototype" href={prototypeUrl} rel="noreferrer" target="_blank">
+            Try the live prototype <span aria-hidden="true">↗</span>
+          </a>
+          <a className="text-link" href="#walkthrough">Explore the walkthrough</a>
           <p>Working prototype · User validation still ahead</p>
         </div>
       </section>
@@ -109,8 +114,8 @@ export default function StyleDnaPage() {
           ))}
         </div>
         <p className="case-note">
-          An illustrated walkthrough using artwork from the prototype. A recorded demonstration and public demo
-          link are still to come.
+          An illustrated walkthrough using artwork from the prototype. You can also{" "}
+          <a href={prototypeUrl} rel="noreferrer" target="_blank">try the live prototype</a>.
         </p>
       </section>
 

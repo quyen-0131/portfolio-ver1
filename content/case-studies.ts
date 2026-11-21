@@ -62,9 +62,9 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "French",
     label: "Independent product prototype · In iteration",
     teaser:
-      "A French practice prototype that helps learners rehearse one conversation at a time and respond in their own words.",
+      "A French practice prototype that teaches in context, not streaks: learners rehearse one conversation at a time and respond in their own words.",
     summary:
-      "A French practice prototype for busy adults who want to rehearse one everyday conversation at a time and answer in their own words.",
+      "A French practice prototype for busy adults who want more than short lessons and streaks: every phrase is learned in context, one everyday conversation at a time, until they can answer in their own words.",
     people: "Working adults learning French with real intent and very little time.",
     contribution:
       "I defined the product and its principles, wrote the conversations, built the prototype, and tested it to refine the format.",
