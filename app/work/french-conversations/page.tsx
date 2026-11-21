@@ -193,7 +193,7 @@ export default function FrenchConversationsPage() {
         </div>
         <p className="case-lede">
           The bet: rehearsing one everyday situation in stages makes it easier to improvise within it. The current
-          build covers one conversation about your weekend, in three versions, at A2 level. A session runs: pick the
+          build covers one conversation about your weekend, in three versions, at A1, A2, or B1 level. A session runs: pick the
           weekend you actually had → read the conversation → rebuild your own line → answer as yourself → keep the
           sentences you said, not a score. Learners can also paste French they’ve read and practise it the same way.
         </p>
