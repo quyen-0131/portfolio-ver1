@@ -65,13 +65,14 @@ export default function StyleDnaPage() {
           <h2 id="problem-title">What should I buy next?</h2>
           <div>
             <p>
-              Advice about timeless wardrobes often starts with a list of pieces to own. My starting question was
-              more personal: will this piece keep earning a place in how I already dress?
+              Advice about timeless wardrobes often starts with a list of pieces to own. I wanted to start
+              somewhere else: with where a piece comes from, the culture around it, and the job it was designed
+              to do.
             </p>
             <p>
-              A garment can be durable or culturally meaningful and still be hard for someone to wear. I wanted
-              to connect its story to the wearer’s real activities, preferences, and constraints. Whether that
-              changes a shopping decision remains a hypothesis, not a demonstrated outcome.
+              My question was whether pairing that understanding with a clearer sense of your own style could
+              help you choose pieces that stay in your wardrobe for longer, making it more timeless and, over
+              time, more sustainable. That is still a hypothesis, not a demonstrated outcome.
             </p>
           </div>
         </div>
