@@ -7,6 +7,7 @@ import "./globals.css";
 import "./home.css";
 import "./projects.css";
 import "./typography.css";
+import "./illustrations.css";
 
 const body = DM_Sans({
   subsets: ["latin"],

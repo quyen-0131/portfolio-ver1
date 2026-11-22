@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { QuestionSharpener } from "@/components/home/QuestionSharpener";
+import { MethodLoop, ProjectIllustration, ScribbleArrow } from "@/components/illustrations/Illustrations";
 import { caseStudies } from "@/content/case-studies";
 
 const principles = [
@@ -32,6 +33,7 @@ export default function HomePage() {
                 About my path <span aria-hidden="true">→</span>
               </Link>
             </div>
+            <ScribbleArrow className="hp-hero-doodle" />
           </div>
 
           <QuestionSharpener
@@ -63,6 +65,7 @@ export default function HomePage() {
                     0{index + 1}
                   </span>
                   <p className="hp-card-label">{study.label}</p>
+                  <ProjectIllustration slug={study.slug} className="hp-card-illo" />
                 </div>
                 <div className="hp-card-body">
                   <h3>
@@ -96,6 +99,7 @@ export default function HomePage() {
             <p className="hp-kicker">How I work</p>
             <h2 id="principles-title">Start with people, then learn what changes the decision.</h2>
             <p className="hp-aside">(It rarely works the first time. That’s what the second experiment is for.)</p>
+            <MethodLoop className="hp-method-illo" />
           </div>
           <ol className="hp-steps">
             {principles.map((principle, index) => (

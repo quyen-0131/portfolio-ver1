@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CaseIllustration } from "@/components/illustrations/Illustrations";
 
 export const metadata: Metadata = {
   title: "French Conversations",
@@ -56,7 +57,7 @@ const prototypeScreens = [
 export default function FrenchConversationsPage() {
   return (
     <>
-      <section className="case-hero" aria-labelledby="case-title">
+      <section className="case-hero case-hero--illustrated" aria-labelledby="case-title">
         <Link className="case-back" href="/personal-projects">
           Personal projects
         </Link>
@@ -87,6 +88,7 @@ export default function FrenchConversationsPage() {
           </a>
           <p>About ten minutes · no account needed</p>
         </div>
+        <CaseIllustration slug="french-conversations" tone="tomato" />
       </section>
 
       <section className="case-at-a-glance" aria-label="French Conversations at a glance">

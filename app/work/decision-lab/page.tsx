@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseIllustration } from "@/components/illustrations/Illustrations";
 
 export const metadata: Metadata = {
   title: "Decision Lab",
@@ -135,7 +136,10 @@ export default function DecisionLabPage() {
       <section className="case-section case-problem" aria-labelledby="decision-lab-approach-title">
         <p className="eyebrow">My approach</p>
         <div className="case-problem-layout">
-          <h2 id="decision-lab-approach-title">A research report only helps when it makes the next decision clearer.</h2>
+          <div className="case-problem-heading">
+            <h2 id="decision-lab-approach-title">A research report only helps when it makes the next decision clearer.</h2>
+            <CaseIllustration slug="decision-lab" tone="cobalt" className="case-problem-illo" />
+          </div>
           <div>
             <p>
               The work was not about collecting opinions for their own sake. Each project started with a live decision:

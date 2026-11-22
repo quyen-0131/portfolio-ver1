@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CaseIllustration } from "@/components/illustrations/Illustrations";
 
 export const metadata: Metadata = {
   title: "Style DNA",
@@ -37,7 +38,7 @@ const walkthrough = [
 export default function StyleDnaPage() {
   return (
     <div className="project-theme-ink">
-      <section className="case-hero" aria-labelledby="case-title">
+      <section className="case-hero case-hero--illustrated" aria-labelledby="case-title">
         <Link className="case-back" href="/personal-projects">Personal projects</Link>
         <p className="eyebrow">Style DNA · Independent product prototype · In iteration</p>
         <h1 id="case-title">Start with the clothes you reach for.</h1>
@@ -56,6 +57,7 @@ export default function StyleDnaPage() {
           <a className="text-link" href="#walkthrough">Explore the walkthrough</a>
           <p>Working prototype · User validation still ahead</p>
         </div>
+        <CaseIllustration slug="style-dna" tone="mustard" />
       </section>
 
       <section className="case-at-a-glance" aria-label="Style DNA at a glance">
