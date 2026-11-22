@@ -93,7 +93,7 @@ export default function StyleDnaPage() {
             </p>
             <p>
               My hypothesis is that this makes it easier to tell whether a new piece will earn its place and, over
-              time, to buy less. That is still a hypothesis, not a demonstrated outcome.
+              time, to buy less.
             </p>
           </div>
         </div>
