@@ -202,9 +202,9 @@ export default function StyleDnaPage() {
           yet demonstrate less buying or greater sustainability.
         </p>
         <p>
-          <strong>The next build.</strong> Use the research and self-use notes to revise the questions, account for
-          occasion wear, and make the card useful to revisit. A shareable card needs redesigning before unprompted
-          sharing can serve as a meaningful signal.
+          <strong>The next build.</strong> Deepen the style analysis so the card can spot patterns across the pieces
+          someone wears most, such as shape, fabric, colour and occasion. Then use those patterns to show which pieces
+          and accessories suit their style. A broader garment collection comes after that.
         </p>
       </section>
     </div>
