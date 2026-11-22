@@ -12,12 +12,61 @@
   letter-spacing: 0.08em;
 }
 
-/* Home: hero doodle --------------------------------------------------------- */
+/* Home: hero ---------------------------------------------------------------- */
 
-.hp-hero-doodle {
-  width: clamp(14rem, 24vw, 19rem);
-  margin: 2rem 0 -1.5rem auto;
-  transform: rotate(-4deg);
+.hp-hero .hp-hero-illo {
+  width: 100%;
+  max-width: 34rem;
+  justify-self: end;
+  border-width: 3px;
+  box-shadow: 0.6rem 0.6rem 0 var(--color-ink);
+  transform: rotate(1.2deg);
+}
+
+/* Home: the sharpened question on each card ---------------------------------- */
+
+.hp-card-question {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+  padding: 1rem 1.1rem;
+  border: 2px dashed color-mix(in srgb, var(--color-ink) 35%, transparent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--color-paper) 70%, transparent);
+}
+
+.hp-card-question p {
+  margin: 0;
+}
+
+.hp-card-qlabel {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono-stack);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* The question people start with, crossed out in the site's red pencil. */
+.hp-card-ask-text {
+  color: var(--color-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-tomato);
+  text-decoration-thickness: 2px;
+}
+
+.hp-card-focus {
+  color: var(--color-teal-deep);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.hp-card-focus .hp-card-qlabel {
+  color: var(--color-accent);
 }
 
 /* Home: case study cards ---------------------------------------------------- */
@@ -192,8 +241,10 @@
 /* Responsive ------------------------------------------------------------------ */
 
 @media (max-width: 58rem) {
-  .hp-hero-doodle {
-    display: none;
+  .hp-hero .hp-hero-illo {
+    max-width: 30rem;
+    justify-self: start;
+    transform: rotate(0.6deg);
   }
 
   .hp-method-illo {

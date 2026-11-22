@@ -170,193 +170,9 @@
   margin-top: 2.25rem;
 }
 
-/* Field note (the question sharpener) ------------------------------------ */
-
-.field-note {
-  position: relative;
-  margin: 0;
-  padding: 2.4rem clamp(1.25rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2.2rem);
-  border: 3px solid var(--color-ink);
-  border-radius: 0.6rem;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0 1.9rem,
-      color-mix(in srgb, var(--color-cobalt) 14%, transparent) 1.9rem calc(1.9rem + 1px)
-    ),
-    var(--color-paper);
-  box-shadow: 0.6rem 0.6rem 0 var(--color-ink);
-  transform: rotate(1.2deg);
-}
-
-/* Spiral binding along the top edge. */
-.field-note-binding {
-  position: absolute;
-  top: -0.85rem;
-  right: 1.5rem;
-  left: 1.5rem;
-  height: 1.6rem;
-  background: radial-gradient(circle at 50% 50%, var(--color-ink) 0 0.32rem, transparent 0.34rem) 0 0 / 1.5rem 100% repeat-x;
-}
-
-.field-note-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-  font-family: var(--font-mono-stack);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.field-note-header p {
-  margin: 0;
-}
-
-.field-note-stamp {
-  padding: 0.25rem 0.55rem;
-  border: 2px solid var(--color-tomato);
-  border-radius: 0.3rem;
-  color: var(--color-accent);
-  transform: rotate(-4deg);
-}
-
-.field-note-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.field-note-tab {
-  padding: 0.45rem 0.85rem;
-  border: 2px solid var(--color-ink);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--color-ink);
-  cursor: pointer;
-  font: 700 0.75rem/1 var(--font-mono-stack);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: background-color 160ms ease, color 160ms ease;
-}
-
-.field-note-tab span {
-  opacity: 0.6;
-}
-
-.field-note-tab:hover {
-  background: color-mix(in srgb, var(--color-mustard) 45%, transparent);
-}
-
-.field-note-tab[aria-pressed="true"] {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-
-.field-note-body {
-  margin-top: 1.6rem;
-}
-
-.field-note-kicker {
-  margin: 0 0 0.35rem;
-  color: var(--color-muted);
-  font-family: var(--font-mono-stack);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.field-note-messy {
-  margin: 0;
-  font-family: var(--font-display-stack);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 1.05;
-  text-transform: uppercase;
-  animation: note-in 320ms ease both;
-}
-
-/* A hand-drawn strike that draws across when the question is sharpened. */
-.field-note-messy span {
-  background: linear-gradient(var(--color-tomato), var(--color-tomato)) no-repeat 0 58% / 0% 0.18em;
-  transition: background-size 420ms ease, color 420ms ease;
-}
-
-.field-note-body[data-sharpened="true"] .field-note-messy span {
-  background-size: 100% 0.18em;
-  color: var(--color-muted);
-}
-
-.field-note-sharpen {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 1.3rem;
-  padding: 0.7rem 1.1rem;
-  border: 2px solid var(--color-ink);
-  border-radius: 0.5rem;
-  background: var(--color-mustard);
-  box-shadow: 0.2rem 0.2rem 0 var(--color-ink);
-  color: var(--color-ink);
-  cursor: pointer;
-  font: 700 0.78rem/1 var(--font-mono-stack);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: transform 140ms ease, box-shadow 140ms ease;
-}
-
-.field-note-sharpen:hover {
-  box-shadow: 0.3rem 0.3rem 0 var(--color-ink);
-  transform: translate(-0.1rem, -0.1rem);
-}
-
-.field-note-sharpen:active {
-  box-shadow: 0 0 0 var(--color-ink);
-  transform: translate(0.2rem, 0.2rem);
-}
-
-.field-note-result {
-  min-height: 9.5rem;
-  margin-top: 1.4rem;
-}
-
-.field-note-focused {
-  margin: 0;
-  color: var(--color-teal-deep);
-  font-family: var(--font-display-stack);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 1.05;
-  text-transform: uppercase;
-  animation: note-in 420ms 120ms ease both;
-}
-
-.field-note-link {
-  display: inline-flex;
-  margin-top: 1rem;
-  gap: 0.4rem;
-  font-family: var(--font-mono-stack);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  animation: note-in 420ms 240ms ease both;
-}
-
-.field-note-tab:focus-visible,
-.field-note-sharpen:focus-visible,
 .hp-button:focus-visible {
   outline: 3px solid var(--color-cobalt);
   outline-offset: 3px;
-}
-
-@keyframes note-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.5rem);
-  }
 }
 
 /* Selected work ---------------------------------------------------------- */
@@ -616,11 +432,6 @@
     grid-template-columns: 1fr;
   }
 
-  .field-note {
-    max-width: 36rem;
-    transform: rotate(0.6deg);
-  }
-
   .hp-cards {
     grid-template-columns: 1fr;
     max-width: 36rem;
@@ -630,10 +441,6 @@
 @media (max-width: 42rem) {
   .hp-hero h1 {
     font-size: clamp(3.1rem, 15vw, 4.6rem);
-  }
-
-  .field-note-header {
-    flex-wrap: wrap;
   }
 
   .hp-steps li {

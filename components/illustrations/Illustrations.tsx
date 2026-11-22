@@ -230,32 +230,70 @@ export function DecisionIllustration({ className }: Props) {
   );
 }
 
-/** A tangled line that straightens into an arrow: ambiguity becoming focus. */
-export function ScribbleArrow({ className }: Props) {
+const heroQuestions = [
+  { x: 38, y: 54, fill: C.tomato },
+  { x: 88, y: 34, fill: C.cobalt },
+  { x: 68, y: 100, fill: C.ink },
+];
+
+/** Home hero: a person leaves a tangle of questions behind and lights one clear way forward. */
+export function HeroIllustration({ className }: Props) {
+  const shadow = "illo-shadow-hero";
   return (
-    <svg
-      className={className ? `illo ${className}` : "illo"}
-      viewBox="0 0 300 120"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-    >
+    <Frame id={shadow} viewBox="0 0 360 300" className={className}>
+      {/* The tangle of questions */}
       <path
-        d="M14 72 C 4 30, 62 18, 58 54 C 54 88, 8 84, 22 56 C 36 26, 96 24, 92 62 C 88 94, 40 86, 54 58 C 68 30, 120 36, 124 66 C 128 90, 154 78, 176 70 L 272 62"
+        d="M22 96 C 10 60, 60 44, 62 72 C 64 98, 22 96, 30 70 C 38 44, 96 38, 92 74 C 88 104, 44 98, 54 70"
         fill="none"
         {...stroke}
-        strokeWidth={3.5}
       />
-      <path d="M254 46 L274 62 L254 78" fill="none" {...stroke} strokeWidth={3.5} />
-      <text className="illo-mono" x="10" y="14" fontSize="12" fontWeight="700" fill={C.ink}>
-        MESSY
-      </text>
-      <text className="illo-mono" x="206" y="44" fontSize="12" fontWeight="700" fill={C.tomato}>
-        FOCUSED
-      </text>
-      <Sparkle x={284} y={96} r={10} fill={C.paper} />
-      <Sparkle x={106} y={104} r={6} fill={C.tomato} />
-    </svg>
+      {heroQuestions.map(({ x, y, fill }) => (
+        <g key={`${x}-${y}`}>
+          <circle cx={x} cy={y} r="15" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+          <text x={x} y={y + 6.5} textAnchor="middle" fontSize="19" fontWeight="700" fill={fill}>
+            ?
+          </text>
+        </g>
+      ))}
+
+      {/* The beam and what it lights up */}
+      <path d="M198 152 L352 88 L352 262 L204 175 Z" fill={C.mustard} fillOpacity="0.62" />
+      <path d="M146 262 Q204 252 258 257" fill="none" {...stroke} strokeDasharray="5 7" />
+      <path d="M250 262 Q300 222 352 262 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+      <path d="M300 240 V176" fill="none" {...stroke} strokeWidth={3} />
+      <path d="M300 177 H332 L324 189 L332 201 H300 Z" fill={C.tomato} {...stroke} filter={`url(#${shadow})`} />
+      <path d="M308 189 L313 194 L322 184" fill="none" {...stroke} stroke={C.paper} strokeWidth={2.5} />
+      <path d="M14 262 H346" fill="none" {...stroke} />
+      <path d="M40 262 l-4 -8 M46 262 l2 -9 M214 262 l-3 -7 M220 262 l2 -8" fill="none" {...stroke} strokeWidth={2} />
+
+      {/* The person */}
+      <path d="M102 160 Q94 182 96 204" fill="none" {...stroke} strokeWidth={13} />
+      <path d="M102 160 Q94 182 96 204" fill="none" stroke={C.tomato} strokeWidth={7.5} strokeLinecap="round" />
+      <g filter={`url(#${shadow})`}>
+        <path d="M104 208 H134 L131 262 H121 L119 230 L116 262 H106 Z" fill={C.cobalt} {...stroke} />
+        <path d="M100 156 Q118 144 136 156 L138 212 H100 Z" fill={C.tomato} {...stroke} />
+        <circle cx="118" cy="128" r="17" fill={C.paper} {...stroke} />
+      </g>
+      <ellipse cx="111" cy="263" rx="9" ry="4" fill={C.ink} />
+      <ellipse cx="128" cy="263" rx="9" ry="4" fill={C.ink} />
+      <circle cx="104" cy="108" r="7" fill={C.ink} />
+      <path d="M101 130 Q99 109 118 109 Q137 109 135 127 Q126 119 116 121 Q106 122 101 130 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
+      <circle cx="128" cy="131" r="2.2" fill={C.ink} />
+      <path d="M126 139 Q130 141 133 137" fill="none" {...stroke} strokeWidth={1.8} />
+
+      <g transform="translate(166 172) rotate(-14)">
+        <rect x="0" y="-6" width="27" height="12" rx="3" fill={C.mustard} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M27 -9 L36 -12 V12 L27 9 Z" fill={C.paper} {...stroke} />
+      </g>
+      <path d="M132 160 Q150 170 162 172" fill="none" {...stroke} strokeWidth={13} />
+      <path d="M132 160 Q150 170 162 172" fill="none" stroke={C.tomato} strokeWidth={7.5} strokeLinecap="round" />
+      <circle cx="166" cy="172" r="5.5" fill={C.paper} {...stroke} strokeWidth={2} />
+
+      <Sparkle x={262} y={146} r={8} fill={C.paper} />
+      <Sparkle x={330} y={124} r={10} fill={C.paper} />
+      <Sparkle x={240} y={200} r={5} fill={C.paper} />
+      <Sparkle x={160} y={60} r={7} fill={C.mustard} />
+    </Frame>
   );
 }
 

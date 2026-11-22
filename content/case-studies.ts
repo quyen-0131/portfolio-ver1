@@ -23,12 +23,10 @@ export type CaseStudy = {
   href: string;
   /** Colour used for this project's card on the home page. */
   tone: CaseStudyTone;
-  /** The broad question people start with: shown first in the home page hero. */
+  /** The broad question people start with: shown struck through on the home page card. */
   messyQuestion: string;
-  /** The sharper question the project actually worked on. */
+  /** The sharper question the project actually worked on, shown beneath it. */
   focusedQuestion: string;
-  /** Short tab label in the home page hero. */
-  shortTitle: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -36,7 +34,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "career-experiment",
     category: "personal",
     title: "The Career Experiment",
-    shortTitle: "Careers",
     label: "Independent product prototype · In iteration",
     teaser:
       "A product prototype that helps students explore the day-to-day work behind potential careers before committing to a path.",
@@ -59,7 +56,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "french-conversations",
     category: "personal",
     title: "French Conversations",
-    shortTitle: "French",
     label: "Independent product prototype · In iteration",
     teaser:
       "A French practice prototype that teaches in context, not streaks: learners rehearse one conversation at a time and respond in their own words.",
@@ -81,7 +77,6 @@ export const caseStudies: CaseStudy[] = [
     category: "personal",
     panel: "ink",
     title: "Style DNA",
-    shortTitle: "Style",
     label: "Independent product prototype · In iteration",
     teaser:
       "A wardrobe-reflection prototype that starts with clothes you already wear and explores what could keep a piece useful to you.",
@@ -102,7 +97,6 @@ export const caseStudies: CaseStudy[] = [
     slug: "decision-lab",
     category: "professional",
     title: "Decision Lab",
-    shortTitle: "Decisions",
     label: "Behavioural research and strategy · Confidential",
     teaser:
       "Research and strategy work focused on how context, behaviour, and evidence shape practical decisions.",

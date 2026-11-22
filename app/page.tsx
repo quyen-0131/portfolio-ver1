@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { QuestionSharpener } from "@/components/home/QuestionSharpener";
-import { MethodLoop, ProjectIllustration, ScribbleArrow } from "@/components/illustrations/Illustrations";
+import {
+  HeroIllustration,
+  IllustrationPlate,
+  MethodLoop,
+  ProjectIllustration,
+} from "@/components/illustrations/Illustrations";
 import { caseStudies } from "@/content/case-studies";
 
 const principles = [
@@ -33,19 +37,11 @@ export default function HomePage() {
                 About my path <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <ScribbleArrow className="hp-hero-doodle" />
           </div>
 
-          <QuestionSharpener
-            studies={caseStudies.map(({ slug, shortTitle, title, href, messyQuestion, focusedQuestion }) => ({
-              slug,
-              shortTitle,
-              title,
-              href,
-              messyQuestion,
-              focusedQuestion,
-            }))}
-          />
+          <IllustrationPlate tone="teal" className="hp-hero-illo">
+            <HeroIllustration />
+          </IllustrationPlate>
         </div>
       </section>
 
@@ -71,6 +67,16 @@ export default function HomePage() {
                   <h3>
                     <Link href={study.href}>{study.title}</Link>
                   </h3>
+                  <div className="hp-card-question">
+                    <p className="hp-card-ask">
+                      <span className="hp-card-qlabel">People ask</span>
+                      <span className="hp-card-ask-text">{study.messyQuestion}</span>
+                    </p>
+                    <p className="hp-card-focus">
+                      <span className="hp-card-qlabel">So I asked</span>
+                      {study.focusedQuestion}
+                    </p>
+                  </div>
                   <p>{study.teaser}</p>
                   <ul className="hp-chips" aria-label={`${study.title} themes`}>
                     {study.themes.slice(0, 3).map((theme) => (

@@ -40,8 +40,6 @@
   font-size: clamp(2.25rem, 5vw, 3.5rem);
 }
 
-.field-note-messy,
-.field-note-focused,
 .hp-card h3 {
   font-weight: 700;
   line-height: 1.25;
