@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CaseIllustration } from "@/components/illustrations/Illustrations";
+import { ValueProposition } from "@/components/work/ValueProposition";
+import { getCaseStudy } from "@/content/case-studies";
 
 export const metadata: Metadata = {
   title: "Style DNA",
   description:
-    "An independent fashion prototype exploring how the clothes we already wear can guide more considered wardrobe choices.",
+    "A wardrobe prototype for people who buy clothes that end up unworn: it starts with what you already reach for, so you can tell whether the next piece will get worn.",
 };
 
 const prototypeUrl = "https://style-dna-wardrobe.vercel.app/";
@@ -41,10 +43,10 @@ export default function StyleDnaPage() {
       <section className="case-hero case-hero--illustrated" aria-labelledby="case-title">
         <Link className="case-back" href="/personal-projects">Personal projects</Link>
         <p className="eyebrow">Style DNA · Independent product prototype · In iteration</p>
-        <h1 id="case-title">Start with the clothes you reach for.</h1>
+        <h1 id="case-title">A full wardrobe, and still nothing to wear.</h1>
         <p>
-          Fashion has always been a personal interest. With Style DNA, I am exploring whether understanding what
-          already works in a wardrobe can help someone make a more considered choice about the next piece.
+          Many of us buy clothes that end up unworn. Style DNA is a prototype that starts with the clothes you
+          already reach for, so you can tell whether the next piece will actually get worn.
         </p>
         <p>
           The idea came out of COMMON GROUND, a Culture × Tech makeathon in Singapore. I built the app afterwards
@@ -61,25 +63,32 @@ export default function StyleDnaPage() {
       </section>
 
       <section className="case-at-a-glance" aria-label="Style DNA at a glance">
-        <div><p>People</p><strong>People looking for a clearer relationship with the clothes they own</strong></div>
+        <div><p>People</p><strong>People who buy clothes that go unworn, or often feel they have nothing to wear</strong></div>
         <div><p>My role</p><strong>Problem framing, product scope, research synthesis, and building the prototype</strong></div>
         <div><p>Evidence so far</p><strong>Curated garment research and design iteration. No user-validation findings yet.</strong></div>
       </section>
 
+      <ValueProposition study={getCaseStudy("style-dna")} />
+
       <section className="case-section case-problem" aria-labelledby="problem-title">
         <p className="eyebrow">The problem</p>
         <div className="case-problem-layout">
-          <h2 id="problem-title">What should I buy next?</h2>
+          <h2 id="problem-title">Clothes that looked right in the shop, then stayed in the wardrobe.</h2>
           <div>
             <p>
-              Advice about timeless wardrobes often starts with a list of pieces to own. I wanted to start
-              somewhere else: with where a piece comes from, the culture around it, and the job it was designed
-              to do.
+              It is easy to buy a piece because it looks good on the rail or on a screen, then find it doesn’t go
+              with anything you own, or doesn’t suit the way you actually dress. It stays in the wardrobe, unworn,
+              and the next time you get dressed you still feel you have nothing to wear.
             </p>
             <p>
-              My question was whether pairing that understanding with a clearer sense of your own style could
-              help you choose pieces that stay in your wardrobe for longer, making it more timeless and, over
-              time, more sustainable. That is still a hypothesis, not a demonstrated outcome.
+              Most help points the same way: shopping apps recommend more, and advice about timeless wardrobes
+              answers with a list of pieces to own. Both are reasons to buy something else.
+            </p>
+            <p>
+              I wanted to start from the other side: the clothes someone already reaches for, and what those pieces
+              do for them. Garment history comes in to explain what a piece was designed to do, not as a lesson. My
+              hypothesis is that this makes it easier to tell whether a new piece will earn its place and, over time,
+              to buy less. That is still a hypothesis, not a demonstrated outcome.
             </p>
           </div>
         </div>

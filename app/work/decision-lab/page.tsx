@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CaseIllustration } from "@/components/illustrations/Illustrations";
+import { ValueProposition } from "@/components/work/ValueProposition";
+import { getCaseStudy } from "@/content/case-studies";
 
 export const metadata: Metadata = {
   title: "Decision Lab",
@@ -132,6 +134,8 @@ export default function DecisionLabPage() {
           <strong>All project details are anonymised and reconstructed from my own process</strong>
         </div>
       </section>
+
+      <ValueProposition study={getCaseStudy("decision-lab")} />
 
       <section className="case-section case-problem" aria-labelledby="decision-lab-approach-title">
         <p className="eyebrow">My approach</p>

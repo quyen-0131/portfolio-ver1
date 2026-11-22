@@ -4,6 +4,22 @@
  */
 export type CaseStudyTone = "teal" | "tomato" | "cobalt" | "mustard";
 
+/**
+ * The problem-led pitch at the top of each case study: what goes wrong for people
+ * today, what the work does about it, and why that differs from what already exists.
+ */
+export type ValueProposition = {
+  /** One line a stranger could repeat. */
+  statement: string;
+  problem: string;
+  solution: string;
+  difference: string;
+  /** Column headings, when the defaults (problem / what it does / why it's different) don't fit. */
+  labels?: { problem?: string; solution?: string; difference?: string };
+  /** An honesty note shown under the columns, e.g. when the outcome is still a hypothesis. */
+  note?: string;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -23,10 +39,7 @@ export type CaseStudy = {
   href: string;
   /** Colour used for this project's card on the home page. */
   tone: CaseStudyTone;
-  /** The broad question people start with: shown struck through on the home page card. */
-  messyQuestion: string;
-  /** The sharper question the project actually worked on, shown beneath it. */
-  focusedQuestion: string;
+  valueProposition: ValueProposition;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -49,8 +62,15 @@ export const caseStudies: CaseStudy[] = [
     panel: "ink",
     href: "/work/career-experiment",
     tone: "teal",
-    messyQuestion: "With so much career advice out there, how do I know what’s right for me?",
-    focusedQuestion: "Which kind of work could I try for a week to find out?",
+    valueProposition: {
+      statement: "Try the work behind a career before you commit to it.",
+      problem:
+        "Students nearing graduation choose between careers they have mostly seen as job titles and polished profiles. Internships and shadowing are hard to get, so many commit without knowing what the everyday work feels like.",
+      solution:
+        "It connects what a student has already done to the activities behind two roles, asks which kinds of work they want more or less of, and lets them try a small role-shaped problem. They leave with a low-risk next experiment.",
+      difference:
+        "Career quizzes and personality tests hand back a verdict based on preferences. This starts from work the student has actually done and ends with something to try next, so the answer comes from experience rather than a score.",
+    },
   },
   {
     slug: "french-conversations",
@@ -69,8 +89,15 @@ export const caseStudies: CaseStudy[] = [
     themes: ["Product definition", "Prototyping", "Learning design", "Responsible AI"],
     href: "/work/french-conversations",
     tone: "tomato",
-    messyQuestion: "How do I finally become fluent in French?",
-    focusedQuestion: "Can I feel comfortable in one real conversation, responding in my own words?",
+    valueProposition: {
+      statement: "Hold one real conversation in French, in your own words.",
+      problem:
+        "Busy adults can keep a language-app streak going for months and still freeze when someone asks them a real question. Words arrive one at a time, with no situation to recall them from.",
+      solution:
+        "Every phrase is learned inside one everyday situation, such as talking about your weekend. Learners rebuild their own lines, then answer as themselves and get coaching on whether the answer keeps the conversation going.",
+      difference:
+        "Streak-based apps reward showing up, and chatbots produce French a beginner cannot check. Here every French line is written by a person, there are no streaks or scores, and the AI only judges answers and coaches in English.",
+    },
   },
   {
     slug: "style-dna",
@@ -79,10 +106,10 @@ export const caseStudies: CaseStudy[] = [
     title: "Style DNA",
     label: "Independent product prototype · In iteration",
     teaser:
-      "A wardrobe-reflection prototype that starts with clothes you already wear and explores what could keep a piece useful to you.",
+      "A wardrobe prototype for anyone who buys clothes that end up unworn: it starts with what you already reach for, so you can tell whether the next piece will get worn.",
     summary:
-      "A fashion prototype connecting the clothes people reach for, the reasons other pieces go unworn, and the lasting functions behind garment design.",
-    people: "People who want to understand their style and make more considered wardrobe choices.",
+      "A wardrobe prototype for people who buy pieces that end up unworn. It starts with the clothes they reach for and the reasons others stay in the wardrobe, to help them judge whether a new piece will fit how they really dress.",
+    people: "People who buy clothes that go unworn, or often feel they have nothing to wear.",
     contribution:
       "I framed the problem, built the prototype independently after a Culture × Tech makeathon, and connected curated garment research to a personal wardrobe reflection.",
     learning:
@@ -90,8 +117,16 @@ export const caseStudies: CaseStudy[] = [
     themes: ["Product framing", "Prototyping", "Cultural context", "Scope decisions"],
     href: "/work/style-dna",
     tone: "mustard",
-    messyQuestion: "What should I buy next?",
-    focusedQuestion: "Will this piece keep earning a place in how I already dress?",
+    valueProposition: {
+      statement: "Know whether a new piece will actually get worn, before you buy it.",
+      problem:
+        "Many of us have a full wardrobe and still feel we have nothing to wear. A piece looks good in the shop, then doesn't go with anything or doesn't suit how we really dress, and it stays unworn.",
+      solution:
+        "Style DNA starts with the clothes you already reach for. It asks what those pieces do for you and what stops you wearing the rest, then turns your answers into a personal reference to check before the next purchase.",
+      difference:
+        "Shopping apps and trend lists suggest what to buy next. Style DNA starts with what you already own, and helps you decide whether you need something new at all. Garment history appears only to explain what a piece was made to do.",
+      note: "This is the problem the prototype is built around. Whether it changes what people buy has not been tested yet.",
+    },
   },
   {
     slug: "decision-lab",
@@ -110,7 +145,22 @@ export const caseStudies: CaseStudy[] = [
     themes: ["Research design", "Behavioural insight", "Strategic synthesis"],
     href: "/work/decision-lab",
     tone: "cobalt",
-    messyQuestion: "Why don’t people just follow the programme?",
-    focusedQuestion: "What in their context makes the next step hard to take?",
+    valueProposition: {
+      statement: "Evidence an education team can act on, not just a report to file.",
+      problem:
+        "An education organisation had live decisions to make about messaging, recruitment, pricing, and future programmes, without a clear view of how families and employers actually weigh those choices.",
+      solution:
+        "I turned each decision into questions people could answer, spoke with the families and employers living the choice, and connected what I found to a concrete recommendation.",
+      difference:
+        "Rather than a broad survey or a general report, each project started from the decision on the table and ended with a next action the team could take.",
+      labels: { solution: "What I did", difference: "What made it useful" },
+    },
   },
 ];
+
+/** Look up a case study by slug; throws so a typo fails the build instead of rendering nothing. */
+export function getCaseStudy(slug: string): CaseStudy {
+  const study = caseStudies.find((item) => item.slug === slug);
+  if (!study) throw new Error(`Unknown case study: ${slug}`);
+  return study;
+}

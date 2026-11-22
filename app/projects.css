@@ -156,3 +156,67 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Value proposition: problem, what it does, why it's different. */
+.value-prop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.value-prop-item {
+  --vp-tone: var(--color-tomato);
+  padding: 1.4rem 1.4rem 1.6rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.6rem;
+  background: var(--color-surface);
+  box-shadow: 0.35rem 0.35rem 0 var(--vp-tone);
+}
+
+.value-prop-item[data-kind="solution"] {
+  --vp-tone: var(--color-teal);
+}
+
+.value-prop-item[data-kind="difference"] {
+  --vp-tone: var(--color-mustard);
+}
+
+.project-theme-ink .value-prop-item {
+  border-color: var(--color-paper);
+}
+
+.value-prop-label {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--vp-tone);
+  color: var(--color-ink);
+  font-family: var(--font-mono-stack);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.value-prop-label span {
+  opacity: 0.65;
+}
+
+.value-prop-item > p:last-child {
+  margin: 0;
+  color: var(--color-foreground);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 58rem) {
+  .value-prop-grid {
+    grid-template-columns: 1fr;
+    max-width: 40rem;
+  }
+}

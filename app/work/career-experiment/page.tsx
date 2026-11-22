@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CaseIllustration } from "@/components/illustrations/Illustrations";
+import { ValueProposition } from "@/components/work/ValueProposition";
+import { getCaseStudy } from "@/content/case-studies";
 
 export const metadata: Metadata = {
   title: "The Career Experiment",
@@ -90,6 +92,8 @@ export default function CareerExperimentPage() {
           <strong>A guided product manager and management consultant comparison</strong>
         </div>
       </section>
+
+      <ValueProposition study={getCaseStudy("career-experiment")} />
 
       <section className="case-section case-problem" aria-labelledby="problem-title">
         <p className="eyebrow">The problem</p>

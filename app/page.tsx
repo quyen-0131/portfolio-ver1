@@ -67,16 +67,6 @@ export default function HomePage() {
                   <h3>
                     <Link href={study.href}>{study.title}</Link>
                   </h3>
-                  <div className="hp-card-question">
-                    <p className="hp-card-ask">
-                      <span className="hp-card-qlabel">People ask</span>
-                      <span className="hp-card-ask-text">{study.messyQuestion}</span>
-                    </p>
-                    <p className="hp-card-focus">
-                      <span className="hp-card-qlabel">So I asked</span>
-                      {study.focusedQuestion}
-                    </p>
-                  </div>
                   <p>{study.teaser}</p>
                   <ul className="hp-chips" aria-label={`${study.title} themes`}>
                     {study.themes.slice(0, 3).map((theme) => (
