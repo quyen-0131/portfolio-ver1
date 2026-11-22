@@ -86,9 +86,14 @@ export default function StyleDnaPage() {
             </p>
             <p>
               I wanted to start from the other side: the clothes someone already reaches for, and what those pieces
-              do for them. Garment history comes in to explain what a piece was designed to do, not as a lesson. My
-              hypothesis is that this makes it easier to tell whether a new piece will earn its place and, over time,
-              to buy less. That is still a hypothesis, not a demonstrated outcome.
+              do for them. Garment history is part of that. Most of us wear clothes without knowing where they began
+              or what they were first made to do, which makes them easy to take for granted. Knowing a piece’s
+              original function, and how it has changed in modern wardrobes, can help someone appreciate what they
+              already own.
+            </p>
+            <p>
+              My hypothesis is that this makes it easier to tell whether a new piece will earn its place and, over
+              time, to buy less. That is still a hypothesis, not a demonstrated outcome.
             </p>
           </div>
         </div>
