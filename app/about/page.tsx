@@ -208,18 +208,6 @@ export default function AboutPage() {
           <Link className="button button-primary" href="/work">
             Explore selected work <span aria-hidden="true">→</span>
           </Link>
-          <a className="text-link" href="https://www.linkedin.com/in/qn131/" rel="noreferrer" target="_blank">
-            Connect on LinkedIn <span aria-hidden="true">↗</span>
-          </a>
-          <a className="text-link" href="mailto:ptq.nguyen.2026@mitb.smu.edu.sg">
-            Email me <span aria-hidden="true">→</span>
-          </a>
-          <a className="text-link" href="/Nguyen-Phuong-Thao-Quyen-Resume.pdf" target="_blank" rel="noreferrer">
-            Resume (1 page)
-          </a>
-          <a className="text-link" href="/Quyen-Nguyen-CV-2pages.pdf" target="_blank" rel="noreferrer">
-            Detailed CV (2 pages)
-          </a>
         </div>
         <PaperPlaneIllustration className="about-split-illo about-cta-plane" />
       </section>
