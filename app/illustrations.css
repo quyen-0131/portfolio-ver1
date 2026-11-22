@@ -122,6 +122,64 @@
   transform: rotate(-1.6deg);
 }
 
+/* About ----------------------------------------------------------------------- */
+
+/* Hero and call to action: copy on the left, illustration on the right. */
+.about-split {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.about-split > * {
+  grid-column: 1;
+}
+
+.about-split > .about-split-illo {
+  grid-column: 2;
+  grid-row: 1 / span 8;
+  align-self: center;
+}
+
+.about-hero.about-split::after {
+  display: none;
+}
+
+.about-cta-plane {
+  max-width: 20rem;
+  justify-self: center;
+}
+
+/* The contact links keep the full width; the plane sits beside the heading and copy. */
+.about-cta.about-split > .about-split-illo {
+  grid-row: 1 / span 3;
+}
+
+.about-cta.about-split > .hero-actions {
+  grid-column: 1 / -1;
+}
+
+.about-story-aside .about-story-illo {
+  max-width: 17rem;
+  margin-top: 2rem;
+  transform: rotate(-1.6deg);
+}
+
+.about-card-icon {
+  width: 5rem;
+  margin-bottom: 1.25rem;
+}
+
+.principle-grid .about-principle-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 4.5rem;
+  transform: rotate(-4deg);
+}
+
 /* Motion ---------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -151,6 +209,28 @@
     grid-row: auto;
     width: min(100%, 22rem);
     margin-top: 2.5rem;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+
+  .about-split > .about-split-illo {
+    order: 1;
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    width: min(100%, 22rem);
+    margin-top: 2.5rem;
+  }
+
+  .about-cta.about-split > .about-split-illo {
+    grid-row: auto;
+    width: min(100%, 15rem);
+  }
+
+  .about-story-aside .about-story-illo {
+    max-width: 15rem;
   }
 }
 

@@ -259,6 +259,73 @@ export function ScribbleArrow({ className }: Props) {
   );
 }
 
+/* The four working principles, each drawn around (0, 0) to sit inside a 27-unit circle. */
+
+function PeopleIcon() {
+  return (
+    <>
+      <circle cx="0" cy="-7" r="7" fill={C.mustard} {...stroke} strokeWidth={2} />
+      <path d="M-14 16 Q-14 3 0 3 Q14 3 14 16" fill={C.mustard} {...stroke} strokeWidth={2} />
+    </>
+  );
+}
+
+function FocusIcon() {
+  return (
+    <>
+      <circle cx="0" cy="0" r="16" fill={C.tomato} {...stroke} strokeWidth={2} />
+      <circle cx="0" cy="0" r="10" fill={C.paper} {...stroke} strokeWidth={2} />
+      <circle cx="0" cy="0" r="4" fill={C.tomato} />
+      <path d="M16 -16 L3 -3 M16 -16 H10 M16 -16 V-10" fill="none" {...stroke} strokeWidth={2} />
+    </>
+  );
+}
+
+function MarketIcon() {
+  return (
+    <>
+      <rect x="-13" y="-3" width="26" height="16" fill={C.paper} {...stroke} strokeWidth={2} />
+      <path d="M-17 -3 L-13 -14 H13 L17 -3 Z" fill={C.teal} {...stroke} strokeWidth={2} />
+      <path d="M-4 -14 L-6 -3 M4 -14 L6 -3" fill="none" {...stroke} strokeWidth={2} />
+      <rect x="-5" y="3" width="10" height="10" fill={C.mustard} {...stroke} strokeWidth={1.5} />
+    </>
+  );
+}
+
+function IterateIcon() {
+  return (
+    <>
+      <path d="M-5 -15 V-7 L-13 9 Q-15 15 -9 15 H9 Q15 15 13 9 L5 -7 V-15 Z" fill={C.paper} {...stroke} strokeWidth={2} />
+      <path d="M-10 5 H10 L12.5 10 Q13.5 13 10 13 H-10 Q-13.5 13 -12.5 10 Z" fill={C.tomato} />
+      <path d="M-8 -15 H8" fill="none" {...stroke} strokeWidth={2} />
+    </>
+  );
+}
+
+const principleIcons = [PeopleIcon, FocusIcon, MarketIcon, IterateIcon];
+
+const stations = [
+  { x: 150, y: 43, Icon: PeopleIcon },
+  { x: 250, y: 115, Icon: FocusIcon },
+  { x: 150, y: 187, Icon: MarketIcon },
+  { x: 50, y: 115, Icon: IterateIcon },
+];
+
+/** One working principle (0–3: people, focus, market, iterate) as a round badge. */
+export function PrincipleBadge({ index, className }: Props & { index: number }) {
+  const Icon = principleIcons[index];
+  if (!Icon) return null;
+  const shadow = `illo-shadow-principle-${index}`;
+  return (
+    <Frame id={shadow} viewBox="0 0 68 68" className={className}>
+      <circle cx="32" cy="32" r="27" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+      <g transform="translate(32 32)">
+        <Icon />
+      </g>
+    </Frame>
+  );
+}
+
 const loopArrows = [
   { x: 220.7, y: 64.1, angle: 35.8 },
   { x: 220.7, y: 165.9, angle: 144.2 },
@@ -297,26 +364,11 @@ export function MethodLoop({ className }: Props) {
         <circle cx="50" cy="115" r="27" fill={C.paper} {...stroke} />
       </g>
 
-      {/* 01 People */}
-      <circle cx="150" cy="36" r="7" fill={C.mustard} {...stroke} strokeWidth={2} />
-      <path d="M136 59 Q136 46 150 46 Q164 46 164 59" fill={C.mustard} {...stroke} strokeWidth={2} />
-
-      {/* 02 Focus */}
-      <circle cx="250" cy="115" r="16" fill={C.tomato} {...stroke} strokeWidth={2} />
-      <circle cx="250" cy="115" r="10" fill={C.paper} {...stroke} strokeWidth={2} />
-      <circle cx="250" cy="115" r="4" fill={C.tomato} />
-      <path d="M266 99 L253 112 M266 99 H260 M266 99 V105" fill="none" {...stroke} strokeWidth={2} />
-
-      {/* 03 Market */}
-      <rect x="137" y="184" width="26" height="16" fill={C.paper} {...stroke} strokeWidth={2} />
-      <path d="M133 184 L137 173 H163 L167 184 Z" fill={C.teal} {...stroke} strokeWidth={2} />
-      <path d="M146 173 L144 184 M154 173 L156 184" fill="none" {...stroke} strokeWidth={2} />
-      <rect x="145" y="190" width="10" height="10" fill={C.mustard} {...stroke} strokeWidth={1.5} />
-
-      {/* 04 Iterate */}
-      <path d="M45 100 V108 L37 124 Q35 130 41 130 H59 Q65 130 63 124 L55 108 V100 Z" fill={C.paper} {...stroke} strokeWidth={2} />
-      <path d="M40 120 H60 L62.5 125 Q63.5 128 60 128 H40 Q36.5 128 37.5 125 Z" fill={C.tomato} />
-      <path d="M42 100 H58" fill="none" {...stroke} strokeWidth={2} />
+      {stations.map(({ x, y, Icon }) => (
+        <g key={`${x}-${y}`} transform={`translate(${x} ${y})`}>
+          <Icon />
+        </g>
+      ))}
 
       {loopBadges.map(({ x, y, label }) => (
         <g key={label}>
@@ -345,15 +397,196 @@ export function ProjectIllustration({ slug, className }: Props & { slug: string 
   return Illustration ? <Illustration className={className} /> : null;
 }
 
-/** A case study's illustration on a framed, coloured plate. */
-export function CaseIllustration({
-  slug,
-  tone,
-  className,
-}: Props & { slug: string; tone: "teal" | "tomato" | "mustard" | "cobalt" }) {
+type Tone = "teal" | "tomato" | "mustard" | "cobalt";
+
+/** Any illustration on a framed, coloured plate. */
+export function IllustrationPlate({ tone, className, children }: Props & { tone: Tone; children: ReactNode }) {
   return (
     <figure className={className ? `case-illo ${className}` : "case-illo"} data-tone={tone} aria-hidden="true">
-      <ProjectIllustration slug={slug} />
+      {children}
     </figure>
+  );
+}
+
+/** A case study's illustration on a framed, coloured plate. */
+export function CaseIllustration({ slug, tone, className }: Props & { slug: string; tone: Tone }) {
+  return (
+    <IllustrationPlate tone={tone} className={className}>
+      <ProjectIllustration slug={slug} />
+    </IllustrationPlate>
+  );
+}
+
+/* About page ----------------------------------------------------------------- */
+
+/** About hero: from home in Vietnam, by plane to UBC, and on towards product work. */
+export function JourneyIllustration({ className }: Props) {
+  const shadow = "illo-shadow-journey";
+  return (
+    <Frame id={shadow} viewBox="0 0 320 240" className={className}>
+      <path d="M58 170 C 62 128, 92 112, 116 108" fill="none" {...stroke} strokeDasharray="5 7" />
+      <path d="M188 106 C 222 108, 248 116, 258 132" fill="none" {...stroke} strokeDasharray="5 7" />
+
+      {/* Home: a nón lá */}
+      <g transform="translate(58 185) scale(1.3) translate(-58 -185)">
+        <path d="M22 196 L58 160 L94 196 Q58 206 22 196 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M34 184 Q58 190 82 184 M44 174 Q58 178 72 174" fill="none" {...stroke} strokeWidth={1.6} />
+        <path d="M30 199 Q58 210 86 199" fill="none" {...stroke} stroke={C.tomato} strokeWidth={3} />
+      </g>
+
+      {/* UBC: mountains and a mortarboard */}
+      <g transform="translate(156 100) scale(1.25) translate(-156 -100)">
+        <g filter={`url(#${shadow})`}>
+          <path d="M108 128 L136 96 L150 110 L170 88 L204 128 Z" fill={C.teal} {...stroke} />
+          <path d="M122 72 L154 56 L186 72 L154 88 Z" fill={C.cobalt} {...stroke} />
+        </g>
+        <path d="M136 96 L130 103 L136 101 L141 105 Z M170 88 L163 96 L170 94 L176 97 Z" fill={C.paper} {...stroke} strokeWidth={1.5} />
+        <path d="M136 79 V92 Q154 101 172 92 V79" fill={C.cobalt} {...stroke} />
+        <path d="M154 72 L180 76 V92" fill="none" {...stroke} stroke={C.tomato} strokeWidth={3} />
+        <circle cx="180" cy="94" r="3" fill={C.tomato} />
+      </g>
+
+      {/* Product: a phone */}
+      <g transform="translate(262 174) scale(1.2) translate(-262 -174)">
+        <rect x="240" y="138" width="44" height="72" rx="8" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+        <rect x="247" y="148" width="30" height="46" rx="3" fill={C.teal} {...stroke} strokeWidth={2} />
+        <path d="M254 158 H270 M254 165 H264" fill="none" {...stroke} strokeWidth={2} />
+        <circle cx="262" cy="182" r="6" fill={C.mustard} {...stroke} strokeWidth={2} />
+        <path d="M258 202 H266" fill="none" {...stroke} strokeWidth={2} />
+      </g>
+
+      {/* The plane on its way */}
+      <g transform="translate(74 130) rotate(-38) scale(1.15)">
+        <path d="M0 0 L32 11 L0 22 L7 11 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M7 11 H32" fill="none" {...stroke} strokeWidth={2} />
+      </g>
+
+      <g className="illo-mono" fontSize="12" fontWeight="700" fill={C.ink} textAnchor="middle">
+        <text x="58" y="228">HOME</text>
+        <text x="156" y="154">UBC</text>
+        <text x="262" y="236">PRODUCT</text>
+      </g>
+
+      <Sparkle x={290} y={44} r={11} fill={C.paper} />
+      <Sparkle x={220} y={58} r={6} fill={C.tomato} />
+      <Sparkle x={44} y={74} r={7} fill={C.paper} />
+    </Frame>
+  );
+}
+
+/** About story: an open door, and several ways forward beyond it. */
+export function DoorIllustration({ className }: Props) {
+  const shadow = "illo-shadow-door";
+  return (
+    <Frame id={shadow} viewBox="0 0 240 240" className={className}>
+      <path d="M78 202 H162 L206 228 H34 Z" fill={C.paper} fillOpacity="0.7" />
+      <path d="M16 228 H224" fill="none" {...stroke} />
+
+      <g filter={`url(#${shadow})`}>
+        <rect x="70" y="28" width="100" height="174" rx="3" fill={C.ink} {...stroke} />
+        <rect x="78" y="36" width="84" height="166" fill={C.mustard} {...stroke} />
+        <path d="M78 36 L44 52 V216 L78 202 Z" fill={C.tomato} {...stroke} />
+      </g>
+
+      <path d="M78 122 H162" fill="none" {...stroke} strokeWidth={2} />
+      <circle cx="138" cy="80" r="11" fill={C.paper} {...stroke} strokeWidth={2} />
+      <path d="M120 202 L92 124 M120 202 L120 124 M120 202 L150 124" fill="none" {...stroke} strokeDasharray="4 5" />
+      <circle cx="92" cy="124" r="3.5" fill={C.cobalt} {...stroke} strokeWidth={1.5} />
+      <circle cx="120" cy="124" r="3.5" fill={C.cobalt} {...stroke} strokeWidth={1.5} />
+      <circle cx="150" cy="124" r="3.5" fill={C.cobalt} {...stroke} strokeWidth={1.5} />
+      <text x="104" y="104" textAnchor="middle" fontSize="26" fontWeight="700" fill={C.ink}>
+        ?
+      </text>
+      <path d="M52 70 L70 64 V200 L52 206 Z" fill="none" stroke={C.ink} strokeOpacity="0.25" strokeWidth={2} />
+      <circle cx="66" cy="132" r="3.5" fill={C.mustard} {...stroke} strokeWidth={1.5} />
+
+      <g fill={C.ink}>
+        <ellipse cx="104" cy="216" rx="4" ry="6" transform="rotate(-20 104 216)" />
+        <ellipse cx="122" cy="224" rx="4" ry="6" transform="rotate(-20 122 224)" />
+      </g>
+
+      <Sparkle x={200} y={52} r={11} fill={C.paper} />
+      <Sparkle x={196} y={150} r={6} fill={C.mustard} />
+      <Sparkle x={26} y={40} r={7} fill={C.paper} />
+    </Frame>
+  );
+}
+
+/** "Research and analysis": a report, its chart, and a closer look. */
+export function ResearchIcon({ className }: Props) {
+  const shadow = "illo-shadow-research";
+  return (
+    <Frame id={shadow} viewBox="0 0 88 80" className={className}>
+      <rect x="8" y="8" width="46" height="58" rx="3" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+      <path d="M16 18 H44 M16 25 H36" fill="none" {...stroke} strokeWidth={2} />
+      <rect x="16" y="44" width="7" height="14" fill={C.tomato} {...stroke} strokeWidth={1.8} />
+      <rect x="27" y="36" width="7" height="22" fill={C.cobalt} {...stroke} strokeWidth={1.8} />
+      <path d="M14 58 H46" fill="none" {...stroke} strokeWidth={2} />
+      <path d="M66 58 L80 72" fill="none" {...stroke} strokeWidth={8} />
+      <path d="M66 58 L80 72" fill="none" stroke={C.mustard} strokeWidth={3.5} strokeLinecap="round" />
+      <circle cx="56" cy="48" r="15" fill={C.teal} {...stroke} strokeWidth={3} filter={`url(#${shadow})`} />
+      <path d="M48 44 Q50 38 56 36" fill="none" stroke={C.paper} strokeWidth={2.5} strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+/** "Behaviour and learning": what people say, and what they feel. */
+export function BehaviourIcon({ className }: Props) {
+  const shadow = "illo-shadow-behaviour";
+  return (
+    <Frame id={shadow} viewBox="0 0 88 80" className={className}>
+      <g filter={`url(#${shadow})`}>
+        <path
+          d="M14 8 H54 Q62 8 62 16 V36 Q62 44 54 44 H30 L18 56 L20 44 H14 Q6 44 6 36 V16 Q6 8 14 8 Z"
+          fill={C.paper}
+          {...stroke}
+        />
+        <path d="M64 74 C 44 62 44 44 56 44 C 60 44 63 47 64 50 C 65 47 68 44 72 44 C 84 44 84 62 64 74 Z" fill={C.tomato} {...stroke} />
+      </g>
+      <circle cx="22" cy="26" r="3" fill={C.ink} />
+      <circle cx="34" cy="26" r="3" fill={C.ink} />
+      <circle cx="46" cy="26" r="3" fill={C.ink} />
+      <path d="M52 54 Q52 49 56 48" fill="none" stroke={C.paper} strokeWidth={2.5} strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+/** "Delivery with people": two teammates and the flag they're working towards. */
+export function DeliveryIcon({ className }: Props) {
+  const shadow = "illo-shadow-delivery";
+  return (
+    <Frame id={shadow} viewBox="0 0 88 80" className={className}>
+      <path d="M62 8 V48" fill="none" {...stroke} />
+      <path d="M62 9 H84 L78 17 L84 25 H62 Z" fill={C.tomato} {...stroke} />
+      <g filter={`url(#${shadow})`}>
+        <circle cx="24" cy="32" r="9" fill={C.mustard} {...stroke} />
+        <path d="M8 66 Q8 46 24 46 Q40 46 40 66 Z" fill={C.mustard} {...stroke} />
+        <circle cx="52" cy="40" r="9" fill={C.teal} {...stroke} />
+        <path d="M36 72 Q36 54 52 54 Q68 54 68 72 Z" fill={C.teal} {...stroke} />
+      </g>
+    </Frame>
+  );
+}
+
+/** About call to action: a paper plane looping off to say hello. */
+export function PaperPlaneIllustration({ className }: Props) {
+  const shadow = "illo-shadow-plane";
+  return (
+    <Frame id={shadow} viewBox="0 0 260 170" className={className}>
+      <path
+        d="M14 150 C 54 156, 86 120, 70 98 C 56 80, 30 102, 50 118 C 72 136, 116 110, 150 84"
+        fill="none"
+        {...stroke}
+        strokeDasharray="5 7"
+      />
+      <g filter={`url(#${shadow})`}>
+        <path d="M244 26 L152 66 L188 76 Z" fill={C.paper} {...stroke} />
+        <path d="M244 26 L188 76 L202 114 Z" fill={C.teal} {...stroke} />
+        <path d="M188 76 L202 114 L180 92 Z" fill={C.cobalt} {...stroke} />
+      </g>
+      <Sparkle x={130} y={30} r={11} fill={C.mustard} />
+      <Sparkle x={232} y={130} r={7} fill={C.tomato} />
+      <Sparkle x={100} y={150} r={5} fill={C.mustard} />
+    </Frame>
   );
 }

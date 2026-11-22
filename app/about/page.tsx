@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
+import {
+  BehaviourIcon,
+  DeliveryIcon,
+  DoorIllustration,
+  IllustrationPlate,
+  JourneyIllustration,
+  PaperPlaneIllustration,
+  PrincipleBadge,
+  ResearchIcon,
+} from "@/components/illustrations/Illustrations";
+
+function CardIcon({ children }: { children: ReactNode }) {
+  return <div className="about-card-icon">{children}</div>;
+}
 
 export const metadata: Metadata = {
   title: "About",
@@ -29,7 +44,11 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <section className="about-hero" aria-labelledby="about-title">
+      <section className="about-hero about-split" aria-labelledby="about-title">
+        {/* First in the DOM so the hero's `p:last-child` styles still apply; CSS places it. */}
+        <IllustrationPlate tone="mustard" className="about-split-illo">
+          <JourneyIllustration />
+        </IllustrationPlate>
         <p className="eyebrow">About</p>
         <h1 id="about-title">From research and strategy to user-facing product work.</h1>
         <p>
@@ -39,7 +58,12 @@ export default function AboutPage() {
       </section>
 
       <section className="about-story" aria-labelledby="story-title">
-        <p className="eyebrow">Why this work matters to me</p>
+        <div className="about-story-aside">
+          <p className="eyebrow">Why this work matters to me</p>
+          <IllustrationPlate tone="teal" className="about-story-illo">
+            <DoorIllustration />
+          </IllustrationPlate>
+        </div>
         <div>
           <h2 id="story-title">Opportunity can open doors. It does not always tell us where to walk next.</h2>
           <div className="about-story-copy">
@@ -65,6 +89,7 @@ export default function AboutPage() {
         <h2 id="background-title">What I bring to product work.</h2>
         <div className="background-grid">
           <article>
+            <CardIcon><ResearchIcon /></CardIcon>
             <h3>Research and analysis</h3>
             <p>
               An Economics and Commerce foundation, plus experience designing research, analysing evidence, and turning
@@ -72,6 +97,7 @@ export default function AboutPage() {
             </p>
           </article>
           <article>
+            <CardIcon><BehaviourIcon /></CardIcon>
             <h3>Behaviour and learning</h3>
             <p>
               Work across behavioural research, learning programmes, and engagement has made me attentive to the gap
@@ -79,6 +105,7 @@ export default function AboutPage() {
             </p>
           </article>
           <article>
+            <CardIcon><DeliveryIcon /></CardIcon>
             <h3>Delivery with people</h3>
             <p>
               I have led programmes, worked with stakeholders, and improved practical delivery—experience I now bring
@@ -101,6 +128,7 @@ export default function AboutPage() {
           {principles.map((principle, index) => (
             <article key={principle.title}>
               <span aria-hidden="true">0{index + 1}</span>
+              <PrincipleBadge index={index} className="about-principle-badge" />
               <h3>{principle.title}</h3>
               <p>{principle.description}</p>
             </article>
@@ -169,7 +197,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-cta" aria-labelledby="about-cta-title">
+      <section className="about-cta about-split" aria-labelledby="about-cta-title">
         <p className="eyebrow">Now</p>
         <h2 id="about-cta-title">I&apos;m building toward a career in user-facing product.</h2>
         <p>
@@ -193,6 +221,7 @@ export default function AboutPage() {
             Detailed CV (2 pages)
           </a>
         </div>
+        <PaperPlaneIllustration className="about-split-illo about-cta-plane" />
       </section>
     </>
   );
