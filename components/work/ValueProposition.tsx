@@ -2,7 +2,7 @@ import type { CaseStudy } from "@/content/case-studies";
 
 /** The problem-led pitch near the top of a case study: problem, what it does, why it's different. */
 export function ValueProposition({ study }: { study: CaseStudy }) {
-  const { statement, problem, solution, difference, labels, note } = study.valueProposition;
+  const { statement, problem, solution, difference, labels } = study.valueProposition;
   const titleId = `${study.slug}-value-title`;
   const columns = [
     { key: "problem", label: labels?.problem ?? "The problem", text: problem },
@@ -26,7 +26,6 @@ export function ValueProposition({ study }: { study: CaseStudy }) {
           </li>
         ))}
       </ol>
-      {note ? <p className="case-note">{note}</p> : null}
     </section>
   );
 }

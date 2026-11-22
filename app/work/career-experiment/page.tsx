@@ -265,9 +265,6 @@ export default function CareerExperimentPage() {
             </p>
           </article>
         </div>
-        <p className="case-note">
-          This is early input from one person, combined with my own technical reflection—not validation of the product.
-        </p>
       </section>
 
       <section className="case-next" aria-labelledby="next-title">

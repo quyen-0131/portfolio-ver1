@@ -186,10 +186,6 @@ export default function FrenchConversationsPage() {
             </p>
           </article>
         </div>
-        <p className="case-note">
-          These came from one or two testers and my own review of the build. That was enough to change the format, but
-          it isn’t validation of the product. The study below is how I’d get that.
-        </p>
       </section>
 
       <section className="case-section prototype-showcase" aria-labelledby="prototype-showcase-title">

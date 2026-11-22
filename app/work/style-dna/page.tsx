@@ -161,7 +161,6 @@ export default function StyleDnaPage() {
             </p>
           </article>
         </div>
-        <p className="case-note">These are design decisions from building and reviewing the prototype, not findings from user testing.</p>
       </section>
 
       <section className="case-section" aria-labelledby="evidence-title">

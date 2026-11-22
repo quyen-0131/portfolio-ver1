@@ -16,8 +16,6 @@ export type ValueProposition = {
   difference: string;
   /** Column headings, when the defaults (problem / what it does / why it's different) don't fit. */
   labels?: { problem?: string; solution?: string; difference?: string };
-  /** An honesty note shown under the columns, e.g. when the outcome is still a hypothesis. */
-  note?: string;
 };
 
 export type CaseStudy = {
@@ -125,7 +123,6 @@ export const caseStudies: CaseStudy[] = [
         "Style DNA starts with the clothes you already reach for. It asks what those pieces do for you and what stops you wearing the rest, then turns your answers into a personal reference to check before the next purchase.",
       difference:
         "Shopping apps and trend lists suggest what to buy next. Style DNA starts with what you already own, and helps you decide whether you need something new at all. It also tells each piece’s story: what it was first made to do and how it has changed in modern wardrobes, so you can appreciate the clothes you already have.",
-      note: "This is the problem the prototype is built around. Whether it changes what people buy has not been tested yet.",
     },
   },
   {
