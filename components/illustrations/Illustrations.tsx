@@ -231,19 +231,37 @@ export function DecisionIllustration({ className }: Props) {
 }
 
 const heroQuestions = [
-  { x: 38, y: 54, fill: C.tomato },
-  { x: 88, y: 34, fill: C.cobalt },
-  { x: 68, y: 100, fill: C.ink },
+  { x: 34, y: 64, fill: C.tomato },
+  { x: 74, y: 30, fill: C.cobalt },
+  { x: 30, y: 122, fill: C.ink },
 ];
 
-/** Home hero: a person leaves a tangle of questions behind and lights one clear way forward. */
+/** Portrait colours for the home hero, taken from Quyen's photo. */
+const P = {
+  skin: "#f3cdb0",
+  apron: "#e8c3ad",
+  navy: "#1e2b5c",
+} as const;
+
+/**
+ * Home hero: a portrait of Quyen (long dark hair, red lips, white collar, navy
+ * dotted neckerchief, beige apron) leaving a tangle of questions behind and
+ * lighting one clear way forward. Cropped at the bottom like a portrait.
+ */
 export function HeroIllustration({ className }: Props) {
   const shadow = "illo-shadow-hero";
+  const crop = "illo-crop-hero";
   return (
     <Frame id={shadow} viewBox="0 0 360 300" className={className}>
+      <defs>
+        <clipPath id={crop}>
+          <rect x="-20" y="-20" width="400" height="320" />
+        </clipPath>
+      </defs>
+
       {/* The tangle of questions */}
       <path
-        d="M22 96 C 10 60, 60 44, 62 72 C 64 98, 22 96, 30 70 C 38 44, 96 38, 92 74 C 88 104, 44 98, 54 70"
+        d="M14 92 C 2 52, 52 36, 56 66 C 60 96, 14 98, 22 68 C 30 38, 90 22, 92 58"
         fill="none"
         {...stroke}
       />
@@ -256,43 +274,89 @@ export function HeroIllustration({ className }: Props) {
         </g>
       ))}
 
-      {/* The beam and what it lights up */}
-      <path d="M198 152 L352 88 L352 262 L204 175 Z" fill={C.mustard} fillOpacity="0.62" />
-      <path d="M146 262 Q204 252 258 257" fill="none" {...stroke} strokeDasharray="5 7" />
-      <path d="M250 262 Q300 222 352 262 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
-      <path d="M300 240 V176" fill="none" {...stroke} strokeWidth={3} />
-      <path d="M300 177 H332 L324 189 L332 201 H300 Z" fill={C.tomato} {...stroke} filter={`url(#${shadow})`} />
-      <path d="M308 189 L313 194 L322 184" fill="none" {...stroke} stroke={C.paper} strokeWidth={2.5} />
-      <path d="M14 262 H346" fill="none" {...stroke} />
-      <path d="M40 262 l-4 -8 M46 262 l2 -9 M214 262 l-3 -7 M220 262 l2 -8" fill="none" {...stroke} strokeWidth={2} />
+      <g clipPath={`url(#${crop})`}>
+        {/* The beam and what it lights up */}
+        <path d="M262 166 L356 104 L356 286 L271 198 Z" fill={C.mustard} fillOpacity="0.62" />
+        <path d="M280 304 Q318 262 360 304 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M318 278 V216" fill="none" {...stroke} strokeWidth={3} />
+        <path d="M318 217 H348 L340 229 L348 241 H318 Z" fill={C.tomato} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M325 229 L330 234 L339 224" fill="none" {...stroke} stroke={C.paper} strokeWidth={2.5} />
 
-      {/* The person */}
-      <path d="M102 160 Q94 182 96 204" fill="none" {...stroke} strokeWidth={13} />
-      <path d="M102 160 Q94 182 96 204" fill="none" stroke={C.tomato} strokeWidth={7.5} strokeLinecap="round" />
-      <g filter={`url(#${shadow})`}>
-        <path d="M104 208 H134 L131 262 H121 L119 230 L116 262 H106 Z" fill={C.cobalt} {...stroke} />
-        <path d="M100 156 Q118 144 136 156 L138 212 H100 Z" fill={C.tomato} {...stroke} />
-        <circle cx="118" cy="128" r="17" fill={C.paper} {...stroke} />
+        {/* Long hair, behind everything else */}
+        <path
+          d="M84 120 Q78 66 122 64 Q168 66 162 118 Q164 172 178 232 Q160 246 146 230 L100 230 Q84 246 66 232 Q82 172 84 120 Z"
+          fill={C.ink}
+          {...stroke}
+        />
+
+        {/* Shirt, apron, neck */}
+        <g filter={`url(#${shadow})`}>
+          <path d="M54 320 Q56 204 96 184 Q122 174 148 184 Q190 204 192 320 Z" fill={C.paper} {...stroke} />
+        </g>
+        <path d="M100 222 H146 L152 320 H94 Z" fill={P.apron} {...stroke} />
+        <path d="M100 222 L94 188 M146 222 L152 188" fill="none" {...stroke} />
+        <circle cx="105" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
+        <circle cx="141" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
+        <rect x="110" y="146" width="24" height="30" fill={P.skin} {...stroke} />
       </g>
-      <ellipse cx="111" cy="263" rx="9" ry="4" fill={C.ink} />
-      <ellipse cx="128" cy="263" rx="9" ry="4" fill={C.ink} />
-      <circle cx="104" cy="108" r="7" fill={C.ink} />
-      <path d="M101 130 Q99 109 118 109 Q137 109 135 127 Q126 119 116 121 Q106 122 101 130 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
-      <circle cx="128" cy="131" r="2.2" fill={C.ink} />
-      <path d="M126 139 Q130 141 133 137" fill="none" {...stroke} strokeWidth={1.8} />
 
-      <g transform="translate(166 172) rotate(-14)">
-        <rect x="0" y="-6" width="27" height="12" rx="3" fill={C.mustard} {...stroke} filter={`url(#${shadow})`} />
-        <path d="M27 -9 L36 -12 V12 L27 9 Z" fill={C.paper} {...stroke} />
+      {/* Face */}
+      <ellipse cx="122" cy="118" rx="32" ry="37" fill={P.skin} {...stroke} />
+      <circle cx="104" cy="134" r="6" fill={C.tomato} fillOpacity="0.22" />
+      <circle cx="140" cy="134" r="6" fill={C.tomato} fillOpacity="0.22" />
+      <path d="M104 121 q7 -6 14 0 M128 121 q7 -6 14 0" fill="none" {...stroke} strokeWidth={2.6} />
+      <path d="M104 108 q7 -4 14 -1 M128 107 q7 -3 14 1" fill="none" {...stroke} strokeWidth={2.2} />
+      <path d="M122 124 q-3 8 1 10" fill="none" {...stroke} strokeWidth={1.8} />
+      <path d="M111 141 Q122 147 133 141 Q122 154 111 141 Z" fill={C.tomato} {...stroke} strokeWidth={1.6} />
+
+      {/* Side-parted fringe and the strands framing the face */}
+      <path
+        d="M108 76 Q138 70 156 92 Q161 104 157 116 Q148 98 130 96 Q117 95 108 102 Q102 90 108 76 Z"
+        fill={C.ink}
+        {...stroke}
+        strokeWidth={1.5}
+      />
+      <path d="M108 76 Q86 80 88 122 Q92 104 103 98 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
+      <path
+        d="M76 196 q7 -9 1 -19 M70 222 q8 -8 3 -18 M168 198 q-7 -9 -1 -19 M172 222 q-8 -8 -3 -18"
+        fill="none"
+        stroke="#5a5048"
+        strokeWidth={2}
+        strokeLinecap="round"
+      />
+      <path d="M90 104 Q80 142 94 176 Q98 150 96 120 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
+      <path d="M155 100 Q168 142 152 178 Q150 150 150 118 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
+
+      {/* Earring */}
+      <path d="M90 138 V146" fill="none" {...stroke} strokeWidth={1.5} />
+      <circle cx="90" cy="149" r="3.2" fill={C.mustard} {...stroke} strokeWidth={1.5} />
+
+      {/* Collar and dotted neckerchief */}
+      <path d="M104 178 L122 198 L109 206 Z M140 178 L122 198 L135 206 Z" fill={C.paper} {...stroke} />
+      <path d="M100 172 Q122 190 144 172 L140 187 Q122 200 104 187 Z" fill={P.navy} {...stroke} />
+      <path d="M122 194 L140 238 L125 244 L113 200 Z" fill={P.navy} {...stroke} />
+      <g fill={C.paper}>
+        <circle cx="110" cy="182" r="1.8" />
+        <circle cx="122" cy="188" r="1.8" />
+        <circle cx="134" cy="182" r="1.8" />
+        <circle cx="122" cy="210" r="1.8" />
+        <circle cx="128" cy="224" r="1.8" />
+        <circle cx="132" cy="236" r="1.8" />
       </g>
-      <path d="M132 160 Q150 170 162 172" fill="none" {...stroke} strokeWidth={13} />
-      <path d="M132 160 Q150 170 162 172" fill="none" stroke={C.tomato} strokeWidth={7.5} strokeLinecap="round" />
-      <circle cx="166" cy="172" r="5.5" fill={C.paper} {...stroke} strokeWidth={2} />
 
-      <Sparkle x={262} y={146} r={8} fill={C.paper} />
-      <Sparkle x={330} y={124} r={10} fill={C.paper} />
-      <Sparkle x={240} y={200} r={5} fill={C.paper} />
-      <Sparkle x={160} y={60} r={7} fill={C.mustard} />
+      {/* The arm and flashlight */}
+      <g transform="translate(218 196) rotate(-16)">
+        <rect x="-4" y="-9" width="40" height="18" rx="4" fill={C.mustard} {...stroke} filter={`url(#${shadow})`} />
+        <path d="M36 -13 L50 -17 V17 L36 13 Z" fill={C.paper} {...stroke} />
+      </g>
+      <path d="M174 226 Q200 222 212 202" fill="none" {...stroke} strokeWidth={22} />
+      <path d="M174 226 Q200 222 212 202" fill="none" stroke={C.paper} strokeWidth={16} strokeLinecap="round" />
+      <circle cx="217" cy="197" r="9" fill={P.skin} {...stroke} />
+
+      <Sparkle x={302} y={150} r={8} fill={C.paper} />
+      <Sparkle x={340} y={140} r={10} fill={C.paper} />
+      <Sparkle x={206} y={62} r={10} fill={C.mustard} />
+      <Sparkle x={250} y={104} r={6} fill={C.paper} />
     </Frame>
   );
 }
