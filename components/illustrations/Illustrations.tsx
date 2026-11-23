@@ -230,12 +230,6 @@ export function DecisionIllustration({ className }: Props) {
   );
 }
 
-const heroQuestions = [
-  { x: 34, y: 64, fill: C.tomato },
-  { x: 74, y: 30, fill: C.cobalt },
-  { x: 30, y: 122, fill: C.ink },
-];
-
 /** Portrait colours for the home hero, taken from Quyen's photo. */
 const P = {
   skin: "#f3cdb0",
@@ -243,121 +237,147 @@ const P = {
   navy: "#1e2b5c",
 } as const;
 
+/** Thin pale stripes on the red backdrop, as in the photo. */
+const backdropStripes = Array.from({ length: 22 }, (_, index) => 10 + index * 14);
+
 /**
- * Home hero: a portrait of Quyen (long dark hair, red lips, white collar, navy
- * dotted neckerchief, beige apron) leaving a tangle of questions behind and
- * lighting one clear way forward. Cropped at the bottom like a portrait.
+ * Home hero: a round portrait of Quyen drawn from her profile photo: long dark
+ * side-parted hair, red lips, white collar, navy neckerchief with small white
+ * diamonds, and a beige apron, against a red pinstriped backdrop.
  */
 export function HeroIllustration({ className }: Props) {
-  const shadow = "illo-shadow-hero";
-  const crop = "illo-crop-hero";
+  const clip = "illo-clip-hero";
   return (
-    <Frame id={shadow} viewBox="0 0 360 300" className={className}>
+    <svg
+      className={className ? `illo ${className}` : "illo"}
+      viewBox="0 0 332 332"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
       <defs>
-        <clipPath id={crop}>
-          <rect x="-20" y="-20" width="400" height="320" />
+        <clipPath id={clip}>
+          <circle cx="160" cy="160" r="146" />
         </clipPath>
       </defs>
 
-      {/* The tangle of questions */}
-      <path
-        d="M14 92 C 2 52, 52 36, 56 66 C 60 96, 14 98, 22 68 C 30 38, 90 22, 92 58"
-        fill="none"
-        {...stroke}
-      />
-      {heroQuestions.map(({ x, y, fill }) => (
-        <g key={`${x}-${y}`}>
-          <circle cx={x} cy={y} r="15" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
-          <text x={x} y={y + 6.5} textAnchor="middle" fontSize="19" fontWeight="700" fill={fill}>
-            ?
-          </text>
-        </g>
-      ))}
+      {/* Hard shadow, then the white ring */}
+      <circle cx="169" cy="169" r="156" fill={C.ink} />
+      <circle cx="160" cy="160" r="156" fill={C.paper} {...stroke} strokeWidth={3} />
 
-      <g clipPath={`url(#${crop})`}>
-        {/* The beam and what it lights up */}
-        <path d="M262 166 L356 104 L356 286 L271 198 Z" fill={C.mustard} fillOpacity="0.62" />
-        <path d="M280 304 Q318 262 360 304 Z" fill={C.paper} {...stroke} filter={`url(#${shadow})`} />
-        <path d="M318 278 V216" fill="none" {...stroke} strokeWidth={3} />
-        <path d="M318 217 H348 L340 229 L348 241 H318 Z" fill={C.tomato} {...stroke} filter={`url(#${shadow})`} />
-        <path d="M325 229 L330 234 L339 224" fill="none" {...stroke} stroke={C.paper} strokeWidth={2.5} />
-
-        {/* Long hair, behind everything else */}
+      <g clipPath={`url(#${clip})`}>
+        {/* Backdrop: red with pale pinstripes and a warm gold shape on the right */}
+        <rect x="0" y="0" width="332" height="332" fill={C.tomato} />
         <path
-          d="M84 120 Q78 66 122 64 Q168 66 162 118 Q164 172 178 232 Q160 246 146 230 L100 230 Q84 246 66 232 Q82 172 84 120 Z"
-          fill={C.ink}
-          {...stroke}
+          d={backdropStripes.map((x) => `M${x} 0 V332`).join(" ")}
+          fill="none"
+          stroke={C.paper}
+          strokeOpacity="0.35"
+          strokeWidth={1.4}
         />
+        <path d="M262 40 Q230 110 282 170 Q314 132 320 40 Z" fill={C.mustard} {...stroke} strokeWidth={2} />
+        <path d="M250 210 Q296 190 320 240 L320 300 Q280 270 250 210 Z" fill={C.mustard} {...stroke} strokeWidth={2} />
 
-        {/* Shirt, apron, neck */}
-        <g filter={`url(#${shadow})`}>
-          <path d="M54 320 Q56 204 96 184 Q122 174 148 184 Q190 204 192 320 Z" fill={C.paper} {...stroke} />
+        <g transform="translate(160 205) scale(1.45) translate(-122 -165)">
+          {/* Long, full, wavy hair behind everything else; the head tilts slightly */}
+          <g transform="rotate(6 122 165)">
+            <path
+              d="M84 118 Q76 62 120 60 Q172 60 170 116 Q170 150 178 182 Q186 210 180 236 Q164 250 150 236 L98 236 Q82 250 64 236 Q60 206 72 180 Q84 152 84 118 Z"
+              fill={C.ink}
+              {...stroke}
+            />
+          </g>
+
+          {/* Shirt, apron, neck */}
+          <path d="M44 330 Q50 204 96 184 Q122 174 148 184 Q194 204 200 330 Z" fill={C.paper} {...stroke} />
+          <path d="M100 222 H146 L152 330 H94 Z" fill={P.apron} {...stroke} />
+          <path d="M100 222 L94 188 M146 222 L152 188" fill="none" {...stroke} />
+          <circle cx="105" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
+          <circle cx="141" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
+          <rect x="111" y="146" width="22" height="30" fill={P.skin} {...stroke} />
+
+          <g transform="rotate(6 122 165)">
+            {/* Face: a soft oval narrowing to the chin */}
+            <path
+              d="M92 112 Q92 78 122 78 Q152 78 152 112 Q152 140 137 152 Q122 161 107 152 Q92 140 92 112 Z"
+              fill={P.skin}
+              {...stroke}
+            />
+            <circle cx="103" cy="133" r="5.5" fill={C.tomato} fillOpacity="0.18" />
+            <circle cx="141" cy="133" r="5.5" fill={C.tomato} fillOpacity="0.18" />
+
+            {/* Fine, softly arched brows */}
+            <path
+              d="M99 106 Q107 101 116 104 M128 104 Q137 101 145 106"
+              fill="none"
+              stroke="#2b211b"
+              strokeWidth={2.2}
+              strokeLinecap="round"
+            />
+
+            {/* Open almond eyes, a little narrowed by the smile */}
+            <path d="M100 119 Q108 112 116 119 Q108 123 100 119 Z M128 119 Q136 112 144 119 Q136 123 128 119 Z" fill="#ffffff" />
+            <circle cx="108" cy="118.5" r="3.6" fill={C.ink} />
+            <circle cx="136" cy="118.5" r="3.6" fill={C.ink} />
+            <circle cx="109.2" cy="117.3" r="1" fill="#ffffff" />
+            <circle cx="137.2" cy="117.3" r="1" fill="#ffffff" />
+            <path d="M99 119 Q108 110 117 118 M127 118 Q136 110 145 119" fill="none" {...stroke} strokeWidth={2.4} />
+            <path
+              d="M102 122 Q108 124 114 122 M130 122 Q136 124 142 122"
+              fill="none"
+              stroke="#2b211b"
+              strokeWidth={1.2}
+              strokeLinecap="round"
+            />
+
+            {/* Small nose and a closed red smile, lifted a little more on one side */}
+            <path d="M123 122 q-1 8 -5 11 q3 2 7 0" fill="none" {...stroke} strokeWidth={1.6} />
+            <path d="M110 140 Q117 137 122 139 Q127 136 135 137 Q126 149 110 140 Z" fill={C.tomato} {...stroke} strokeWidth={1.5} />
+
+            {/* No fringe: a side part, with the hair swept over and down the far side */}
+            <path
+              d="M110 72 Q148 62 166 94 Q176 124 162 172 Q158 142 152 120 Q146 98 126 90 Q114 87 110 72 Z"
+              fill={C.ink}
+              {...stroke}
+              strokeWidth={1.5}
+            />
+            <path d="M110 72 Q88 74 86 108 Q84 140 96 172 Q93 140 95 116 Q98 90 110 72 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
+            <path
+              d="M74 196 q7 -9 1 -19 M68 222 q8 -8 3 -18 M172 196 q-7 -9 -1 -19 M176 222 q-8 -8 -3 -18 M150 104 q6 10 6 24"
+              fill="none"
+              stroke="#5a5048"
+              strokeWidth={2}
+              strokeLinecap="round"
+            />
+
+            {/* Drop earring on the far side */}
+            <path d="M153 135 V144" fill="none" {...stroke} strokeWidth={1.5} />
+            <circle cx="153" cy="147.5" r="3.4" fill={C.paper} {...stroke} strokeWidth={1.5} />
+          </g>
+
+          {/* Collar, and the navy neckerchief with small white diamonds, knotted and draped to one side */}
+          <path d="M104 178 L122 198 L109 206 Z M140 178 L122 198 L135 206 Z" fill={C.paper} {...stroke} />
+          <path d="M100 172 Q122 190 144 172 L140 187 Q122 200 104 187 Z" fill={P.navy} {...stroke} />
+          <path d="M118 192 L152 232 L138 246 L110 198 Z" fill={P.navy} {...stroke} />
+          <path d="M121 197 L148 230 L139 239" fill="none" stroke={C.paper} strokeWidth={1.4} strokeLinejoin="round" />
+          <g fill={C.paper}>
+            {[
+              [110, 182],
+              [122, 188],
+              [134, 182],
+              [124, 208],
+              [132, 220],
+              [140, 232],
+            ].map(([x, y]) => (
+              <path key={`${x}-${y}`} d={`M${x} ${y - 2.6} L${x + 2.2} ${y} L${x} ${y + 2.6} L${x - 2.2} ${y} Z`} />
+            ))}
+          </g>
         </g>
-        <path d="M100 222 H146 L152 320 H94 Z" fill={P.apron} {...stroke} />
-        <path d="M100 222 L94 188 M146 222 L152 188" fill="none" {...stroke} />
-        <circle cx="105" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
-        <circle cx="141" cy="229" r="3" fill={C.paper} {...stroke} strokeWidth={1.5} />
-        <rect x="110" y="146" width="24" height="30" fill={P.skin} {...stroke} />
       </g>
 
-      {/* Face */}
-      <ellipse cx="122" cy="118" rx="32" ry="37" fill={P.skin} {...stroke} />
-      <circle cx="104" cy="134" r="6" fill={C.tomato} fillOpacity="0.22" />
-      <circle cx="140" cy="134" r="6" fill={C.tomato} fillOpacity="0.22" />
-      <path d="M104 121 q7 -6 14 0 M128 121 q7 -6 14 0" fill="none" {...stroke} strokeWidth={2.6} />
-      <path d="M104 108 q7 -4 14 -1 M128 107 q7 -3 14 1" fill="none" {...stroke} strokeWidth={2.2} />
-      <path d="M122 124 q-3 8 1 10" fill="none" {...stroke} strokeWidth={1.8} />
-      <path d="M111 141 Q122 147 133 141 Q122 154 111 141 Z" fill={C.tomato} {...stroke} strokeWidth={1.6} />
-
-      {/* Side-parted fringe and the strands framing the face */}
-      <path
-        d="M108 76 Q138 70 156 92 Q161 104 157 116 Q148 98 130 96 Q117 95 108 102 Q102 90 108 76 Z"
-        fill={C.ink}
-        {...stroke}
-        strokeWidth={1.5}
-      />
-      <path d="M108 76 Q86 80 88 122 Q92 104 103 98 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
-      <path
-        d="M76 196 q7 -9 1 -19 M70 222 q8 -8 3 -18 M168 198 q-7 -9 -1 -19 M172 222 q-8 -8 -3 -18"
-        fill="none"
-        stroke="#5a5048"
-        strokeWidth={2}
-        strokeLinecap="round"
-      />
-      <path d="M90 104 Q80 142 94 176 Q98 150 96 120 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
-      <path d="M155 100 Q168 142 152 178 Q150 150 150 118 Z" fill={C.ink} {...stroke} strokeWidth={1.5} />
-
-      {/* Earring */}
-      <path d="M90 138 V146" fill="none" {...stroke} strokeWidth={1.5} />
-      <circle cx="90" cy="149" r="3.2" fill={C.mustard} {...stroke} strokeWidth={1.5} />
-
-      {/* Collar and dotted neckerchief */}
-      <path d="M104 178 L122 198 L109 206 Z M140 178 L122 198 L135 206 Z" fill={C.paper} {...stroke} />
-      <path d="M100 172 Q122 190 144 172 L140 187 Q122 200 104 187 Z" fill={P.navy} {...stroke} />
-      <path d="M122 194 L140 238 L125 244 L113 200 Z" fill={P.navy} {...stroke} />
-      <g fill={C.paper}>
-        <circle cx="110" cy="182" r="1.8" />
-        <circle cx="122" cy="188" r="1.8" />
-        <circle cx="134" cy="182" r="1.8" />
-        <circle cx="122" cy="210" r="1.8" />
-        <circle cx="128" cy="224" r="1.8" />
-        <circle cx="132" cy="236" r="1.8" />
-      </g>
-
-      {/* The arm and flashlight */}
-      <g transform="translate(218 196) rotate(-16)">
-        <rect x="-4" y="-9" width="40" height="18" rx="4" fill={C.mustard} {...stroke} filter={`url(#${shadow})`} />
-        <path d="M36 -13 L50 -17 V17 L36 13 Z" fill={C.paper} {...stroke} />
-      </g>
-      <path d="M174 226 Q200 222 212 202" fill="none" {...stroke} strokeWidth={22} />
-      <path d="M174 226 Q200 222 212 202" fill="none" stroke={C.paper} strokeWidth={16} strokeLinecap="round" />
-      <circle cx="217" cy="197" r="9" fill={P.skin} {...stroke} />
-
-      <Sparkle x={302} y={150} r={8} fill={C.paper} />
-      <Sparkle x={340} y={140} r={10} fill={C.paper} />
-      <Sparkle x={206} y={62} r={10} fill={C.mustard} />
-      <Sparkle x={250} y={104} r={6} fill={C.paper} />
-    </Frame>
+      {/* Inner edge of the white ring */}
+      <circle cx="160" cy="160" r="146" fill="none" {...stroke} />
+    </svg>
   );
 }
 

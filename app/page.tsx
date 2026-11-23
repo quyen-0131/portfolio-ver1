@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  HeroIllustration,
-  IllustrationPlate,
-  MethodLoop,
-  ProjectIllustration,
-} from "@/components/illustrations/Illustrations";
+import { HeroIllustration, MethodLoop, ProjectIllustration } from "@/components/illustrations/Illustrations";
 import { caseStudies } from "@/content/case-studies";
 
 const principles = [
@@ -39,9 +34,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <IllustrationPlate tone="teal" className="hp-hero-illo">
-            <HeroIllustration />
-          </IllustrationPlate>
+          <HeroIllustration className="hp-hero-portrait" />
         </div>
       </section>
 
