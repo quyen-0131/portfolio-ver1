@@ -32,22 +32,22 @@ const rolePatterns = [
 
 const prototypeScreens = [
   {
-    image: "/images/career-experiment/guided-demo-intro.svg",
-    alt: "The Career Experiment introduction showing its three-stage decision journey.",
-    label: "01 · Start with evidence",
-    description: "The guided demo sets expectations: this is a tool for exploration, not a quiz or a career verdict.",
+    image: "/images/career-experiment/guided-demo-intro.png",
+    alt: "The Career Experiment introduction, headed “Don’t choose a career from a quiz. Test it.”, with its three phases: find your existing evidence, find your uncertainty, and plan a career experiment.",
+    label: "01 · Start with what you’ve done",
+    description: "The introduction sets expectations: three phases that end in a next test, not a fit score or a career verdict.",
   },
   {
-    image: "/images/career-experiment/guided-demo-activities.svg",
-    alt: "The Career Experiment guided-demo screen for reviewing activity groups.",
-    label: "02 · Confirm the detail",
-    description: "Experience is broken into editable activities, so the evidence stays grounded in work a person has actually done.",
+    image: "/images/career-experiment/guided-demo-review.png",
+    alt: "A review screen showing how a group of past activities maps to the management consultant role, with the question “Overall, would you want this type of work to continue being part of your future career?” and the answers More, About the same, and Less.",
+    label: "02 · Say what you want more or less of",
+    description: "Each group of past activities is shown next to how both careers use it, then answered once: more, about the same, or less.",
   },
   {
-    image: "/images/career-experiment/guided-demo-overview.svg",
-    alt: "A concept screen for The Career Experiment's post-evaluation exploration overview.",
-    label: "03 · Review the overview",
-    description: "A working summary turns small signals from the review into a next experiment—not a final verdict about someone’s fit.",
+    image: "/images/career-experiment/guided-demo-summary.png",
+    alt: "The one-page summary, headed “What this career experiment found”, recapping how product manager and management consultant work felt on the same problem.",
+    label: "03 · Read what the experiment found",
+    description: "After a short work trial on the same problem for both roles, a one-page summary sets what the evidence already showed beside what the trial added.",
   },
 ];
 
@@ -176,9 +176,9 @@ export default function CareerExperimentPage() {
           <h2 id="prototype-showcase-title">The app makes the exploration process visible.</h2>
         </div>
         <p className="case-lede">
-          The first two screens show the current guided-demo flow. The final screen shows the post-evaluation overview
-          I am developing: smaller, reviewable signals and a practical next test. It uses fictional sample data, so
-          visitors can explore without sharing a CV or receiving a definitive career recommendation.
+          These screens are from the current guided demo: the introduction, the review of past work against two
+          careers, and the one-page summary after a short work trial. It uses fictional sample data, so visitors can
+          explore without sharing a CV or receiving a definitive career recommendation.
         </p>
         <div className="prototype-showcase-action">
           <div>
